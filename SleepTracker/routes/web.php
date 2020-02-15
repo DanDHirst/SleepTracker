@@ -13,11 +13,11 @@
 
 
 Route::get('/', function () {
-    $Sleeps = DB::select('SELECT * FROM `user_sleep`');
-    return $Sleeps;
-//    $Sleeps = \App\ViewSleep::all();
-//    foreach ($Sleeps as $Sleep){
-//        echo $Sleep;
-//    }
+//    $Sleeps = DB::select('SELECT * FROM `user_sleep`');
+//    return $Sleeps;
+    $Sleeps = \App\ViewSleep::all();
+    foreach ($Sleeps as $Sleep){
+        echo $Sleep;
+    }
 });
 Route::resource('sleep', 'ViewSleep');

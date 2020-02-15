@@ -18,7 +18,7 @@ class ViewSleep extends Controller
 
         $Sleeps = \App\ViewSleep::all();
         foreach ($Sleeps as $Sleep){
-            return $Sleep;
+            echo $Sleep->Sleep_ID;
         }
     }
 
