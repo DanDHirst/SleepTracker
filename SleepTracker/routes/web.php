@@ -20,4 +20,4 @@ Route::get('/', function () {
         echo $Sleep;
     }
 });
-Route::resource('sleep', 'ViewSleep');
+Route::resource('sleep', 'ViewSleep'); // goes to the controller ViewSleep

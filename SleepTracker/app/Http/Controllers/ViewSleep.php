@@ -14,10 +14,10 @@ class ViewSleep extends Controller
      */
     public function index()
     {
-        //
+        //first method that will be called when calling the this controller
 
-        $Sleeps = \App\ViewSleep::all();
-        foreach ($Sleeps as $Sleep){
+        $Sleeps = \App\ViewSleep::all(); // pulls data from model View sleep and stores in an object
+        foreach ($Sleeps as $Sleep){ // iterate through each sleep and echo the sleep ID
             echo $Sleep->Sleep_ID;
         }
     }
