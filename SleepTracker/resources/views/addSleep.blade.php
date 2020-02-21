@@ -1,9 +1,6 @@
 @extends('layout.sidebar')
 @section('sidebar')
 
-    <?php
-    include_once 'header.php';
-    ?>
     <div class="container" style="padding: 60px">
         <div class="card-deck">
             <div class="card bg-basic">
@@ -19,6 +16,7 @@
                         <div class="form-group">
                             <label for="email">Start Time:</label>
                             <input type="datetime-local" id="startTime" name="startTime" class="form-control" required>
+
                         </div>
                         <div class="form-group">
                             <label for="postcode">End Time:</label>
@@ -36,4 +34,5 @@
             </div>
         </div>
     </div>
+    @section('footer')
 
