@@ -11,6 +11,15 @@
 |
 */
 
+
 Route::get('/', function () {
-    return view('dashboard');
+
+//    $Sleeps = DB::select('SELECT * FROM `user_sleep`');
+//    return $Sleeps;
+    $Sleeps = \App\ViewSleep::all();
+    foreach ($Sleeps as $Sleep){
+        echo $Sleep;
+    }
+  //return view('dashboard');
 });
+Route::resource('sleep', 'ViewSleep'); // goes to the controller ViewSleep
