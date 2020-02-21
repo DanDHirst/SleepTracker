@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class addSleep extends Controller
 {
@@ -38,7 +39,10 @@ class addSleep extends Controller
     {
         //
 
-        return $request;
+        $sleep = new Sleep($request->userID,$request->notes,$request->startTime,$request->endTime);
+
+        $sleep->save();
+        return view('addSleep');
     }
 
     /**
