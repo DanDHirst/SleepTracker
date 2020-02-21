@@ -60,4 +60,5 @@
     </div>
 
 </footer>
+
 @yield("footer")

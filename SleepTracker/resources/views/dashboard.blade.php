@@ -1,5 +1,8 @@
 @extends('layout.sidebar')
+@extends('layout.footer')
 @section('sidebar')
+
+    <link rel="stylesheet" href="{{ URL::asset('css/sidebarstyle.css') }}">
 
 <div class="container" id="content">
     <h2>Collapsible Sidebar Using Bootstrap 4</h2>

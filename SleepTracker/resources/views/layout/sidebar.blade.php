@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="{{ URL::asset('css/sidebarstyle.css') }}">
-    <!-- Scrollbar Custom CSS -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
     <!-- Font Awesome JS -->
@@ -29,34 +29,21 @@
     <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
-            <!--
-            <div class="sidebar-header">
-                <h3>SlpTrk9000</h3>
-            </div>
-            -->
             <ul class="list-unstyled components">
                 <li>
                     <a href="#">Dashboard</a>
                 </li>
                 <li>
-                    <a href="#diarySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Diary</a>
-                    <ul class="collapse list-unstyled" id="diarySubmenu">
-                        <li>
-                            <a href="#">New Entry</a>
-                        </li>
-                        <li>
-                            <a href="#">Calendar</a>
-                        </li>
-                    </ul>
+                    <a href="addSleep">New Entry</a>
+                </li>
+                <li>
+                    <a href="#">Calendar</a>
                 </li>
                 <li>
                     <a href="#">Account</a>
                 </li>
                 <li>
                     <a href="#">Advice</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
                 </li>
             </ul>
         </nav>
@@ -67,30 +54,17 @@
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
 
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <button type="button" id="sidebarCollapse" class="btn btn-dark">
                         <i class="fas fa-align-left"></i>
                         <span>Toggle Sidebar</span>
                     </button>
 
                     <a>SlpTrk9000</a>
-                    <!--
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-user"></i>
-                    </button>
-                    -->
+
                     <button type="button" id="accountButton" class="btn btn-dark">
                         <i class="fas fa-user"></i>
                         <span>Account</span>
                     </button>
-                    <!--
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Account</a>
-                            </li>
-                        </ul>
-                    </div>
-                    -->
                 </div>
             </nav>
         </div>
@@ -104,21 +78,22 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-
-    <script type="text/javascript">
-    $(document).ready(function () {
-        $("#sidebar").mCustomScrollbar({
-                theme: "minimal"
-            });
-
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar, #content').toggleClass('active');
-                $('.collapse.in').toggleClass('in');
-                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-            });
-        });
-    </script>
 </body>
 
 </html>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#sidebar").mCustomScrollbar({
+            theme: "minimal"
+        });
+
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar, #content').toggleClass('active');
+            $('.collapse.in').toggleClass('in');
+            $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+        });
+    });
+</script>
+
 @yield('sidebar')
