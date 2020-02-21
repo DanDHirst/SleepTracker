@@ -2,11 +2,11 @@
 @extends('layout.footer')
 @section('sidebar')
 
-    <div class="container" style="padding: 60px">
+    <div class="container" id="content">
         <div class="card-deck">
-            <div class="card bg-basic">
+            <div class="card bg-dark text-white">
                 <div class="card-header">
-                    <h2>Add Sleep</h2>
+                    <a style="font-size: 20px">Add Sleep</a>
                 </div>
                 <div class="card-body">
                     <form method="post" action="addSleep" class="login-form">
