@@ -26,9 +26,10 @@ DELIMITER $$
 --
 -- Procedures
 --
-CREATE DEFINER=`PRCO204_C`@`%` PROCEDURE `add_sleep` (IN `add_User_ID` INT, IN `add_Sleep_Notes` VARCHAR(255), IN `Hours_Slept` INT)  NO SQL
+
+CREATE DEFINER=`PRCO204_C`@`%` PROCEDURE `add_sleep` (IN `add_User_ID` INT, IN `add_Sleep_Notes` VARCHAR(255), IN `add_Sleep_Start` DATETIME, IN `add_Sleep_End` DATETIME)  NO SQL
 INSERT INTO user_sleep (User_ID, Sleep_Start, Sleep_End, Sleep_Notes)
-VALUES (add_User_ID, DATE_SUB(NOW(), INTERVAL Hours_Slept HOUR), NOW(), add_Sleep_Notes)$$
+VALUES (add_User_ID, add_Sleep_Start, add_Sleep_End, add_Sleep_Notes)$$
 
 CREATE DEFINER=`PRCO204_C`@`%` PROCEDURE `add_user` (IN `add_Email` VARCHAR(64), IN `add_Username` VARCHAR(32), IN `add_Password` VARCHAR(32), IN `add_Country` VARCHAR(56), IN `add_Age` INT(122), IN `add_Gender` VARCHAR(15), IN `add_Security_Q` VARCHAR(150), IN `add_Security_A` VARCHAR(50))  NO SQL
 INSERT INTO user_info (Email, Username, Password, Country, Age, Gender, Security_Question, Security_Answer)
