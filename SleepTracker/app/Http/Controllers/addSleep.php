@@ -38,11 +38,10 @@ class addSleep extends Controller
     public function store(Request $request)
     {
         //
-        $filteredUserID = (int)filter_var($request->userID, FILTER_SANITIZE_STRING);
-        $filteredNotes = filter_var($request->notes, FILTER_SANITIZE_STRING);
-        $startTime = $request->startTime;
-        $endTime = $request->endTime;
-        DB::select('CALL add_sleep(?,?,?,?)',array($filteredUserID, $filteredNotes,$startTime,$endTime));
+
+        $sleep = new Sleep($request->userID,$request->notes,$request->startTime,$request->endTime);
+
+        $sleep->save();
         return view('addSleep');
     }
 
