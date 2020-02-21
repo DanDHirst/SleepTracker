@@ -60,7 +60,7 @@ a:focus {
     width: 100%;
 }
 
-#sidebar {
+#sidebar.active {
     width: 300px;
     position: fixed;
     top: 120px;
@@ -72,7 +72,7 @@ a:focus {
     transition: all 0.3s;
 }
 
-#sidebar.active {
+#sidebar {
     margin-left: -380px;
 }
 
