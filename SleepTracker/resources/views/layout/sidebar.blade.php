@@ -42,7 +42,7 @@
                     <a href="#diarySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Diary</a>
                     <ul class="collapse list-unstyled" id="diarySubmenu">
                         <li>
-                            <a href="#">New Entry</a>
+                            <a href="addSleep">New Entry</a>
                         </li>
                         <li>
                             <a href="#">Calendar</a>
