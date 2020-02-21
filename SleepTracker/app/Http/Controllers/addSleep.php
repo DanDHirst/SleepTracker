@@ -37,7 +37,8 @@ class addSleep extends Controller
     public function store(Request $request)
     {
         //
-        return "Request";
+
+        return $request;
     }
 
     /**
