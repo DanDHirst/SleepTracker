@@ -27,3 +27,6 @@ Route::resource('sleep', 'ViewSleep'); // goes to the controller ViewSleep
 Route::get('dashboard', function (){
     return view('dashboard');
 });
+Route::get('addSleep', function (){
+    return view('addSleep');
+});
