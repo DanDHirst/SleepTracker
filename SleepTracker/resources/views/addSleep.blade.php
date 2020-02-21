@@ -1,4 +1,5 @@
 @extends('layout.sidebar')
+@extends('layout.footer')
 @section('sidebar')
 
     <div class="container" style="padding: 60px">

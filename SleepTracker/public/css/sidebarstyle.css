@@ -60,7 +60,7 @@ a:focus {
     width: 100%;
 }
 
-#sidebar.active {
+#sidebar {
     width: 300px;
     position: fixed;
     top: 120px;
@@ -72,7 +72,7 @@ a:focus {
     transition: all 0.3s;
 }
 
-#sidebar {
+#sidebar.active {
     margin-left: -380px;
 }
 
@@ -143,8 +143,8 @@ ul.CTAs a {
 ----------------------------------------------------- */
 
 #content {
-    width: calc(100% - 600px);
-    margin-right: 200px;
+    width: calc(100% - 380px);
+    margin-right: 50px;
     min-height: 100vh;
     transition: all 0.3s;
     position: absolute;
@@ -193,5 +193,10 @@ ul.CTAs a {
     }
     #accountButton span{
         display:none;
+    }
+    #content {
+        width: 100%;
+        left: 5px;
+        margin-left: 0;
     }
 }
