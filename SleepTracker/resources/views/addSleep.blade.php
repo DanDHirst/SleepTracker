@@ -2,7 +2,7 @@
 @extends('layout.footer')
 @section('sidebar')
 
-    <div class="container" id="content">
+    <div class="container" id="content" style="width: 40%">
         <div class="card-deck">
             <div class="card bg-dark text-white">
                 <div class="card-header">
