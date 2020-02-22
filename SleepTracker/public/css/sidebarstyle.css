@@ -144,7 +144,7 @@ ul.CTAs a {
 ----------------------------------------------------- */
 
 #content {
-    width: calc(100% - 380px);
+    width: calc(100% - 400px);
     margin-right: 50px;
     min-height: 100vh;
     transition: all 0.3s;

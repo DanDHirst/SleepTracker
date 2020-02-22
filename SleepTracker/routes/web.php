@@ -31,3 +31,6 @@ Route::get('dashboard', function (){
 Route::get('addSleep', function (){
     return view('addSleep');
 });
+Route::get('account', function () {
+    return view('account');
+});
