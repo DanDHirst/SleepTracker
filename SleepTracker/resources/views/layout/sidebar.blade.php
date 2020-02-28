@@ -34,16 +34,16 @@
         <nav id="sidebar">
             <ul class="list-unstyled components">
                 <li>
-                    <a href="#">Dashboard</a>
+                    <a href="dashboard">Dashboard</a>
                 </li>
                 <li>
                     <a href="addSleep">New Entry</a>
                 </li>
                 <li>
-                    <a href="#">Calendar</a>
+                    <a href="viewSleep">View sleep</a>
                 </li>
                 <li>
-                    <a href="#">Account</a>
+                    <a href="account">Account</a>
                 </li>
                 <li>
                     <a href="#">Advice</a>
