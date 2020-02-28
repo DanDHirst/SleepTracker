@@ -45,7 +45,7 @@ class ViewSleep extends Controller
 
         $calendar = Calendar::addEvents($sleeps);
 
-        return view('Calender', compact('calendar'));
+        return view('viewSleep', compact('calendar'));
     }
 
     /**
