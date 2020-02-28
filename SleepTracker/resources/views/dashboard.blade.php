@@ -6,22 +6,25 @@
 
 <div class="container" id="content">
     <div class="card-deck">
-        <div class="card mr-4 mb-4 bg-dark text-white" style="width: 300px; height: 300px; min-width: 300px; min-height: 300px">
-            <h4 class="card-title" style="padding: 10px">Sleep Target: Past 3 Days</h4>
-            <canvas id="3dayChart"></canvas>
-        </div>
-        <div class="card mr-4 mb-4 bg-dark text-white" style="width: 300px; height: 300px; min-width: 300px; min-height: 300px">
-            <h4 class="card-title" style="padding: 10px">Sleep Target: Past 7 Days</h4>
-            <canvas id="7dayChart"></canvas>
-        </div>
-        <div class="card mr-4 mb-4" style="width: 300px; height: 300px; min-width: 300px; min-height: 300px">
+        <div class="card mr-4 mb-4 bg-dark text-white" style="width: 300px; height: 320px; min-width: 300px; min-height: 320px">
+            <h4 class="card-header">Example Dashboard</h4>
             <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-secondary mb-4 h-auto" style="width:100%; padding-top: 10px">Add a Diary Entry</a><br>
+                <a href="#" class="btn btn-secondary mb-4 h-auto" style="width:100%; padding-top: 10px">Account</a>
+                <a href="#" class="btn btn-secondary h-auto" style="width:100%; padding-top: 10px">Logout</a>
             </div>
         </div>
-        <div class="card mr-4 mb-4" style="width: 300px; height: 300px; min-width: 300px; min-height: 300px">
+        <div class="card mr-4 mb-4 bg-dark text-white" style="width: 300px; height: 320px; min-width: 300px; min-height: 320px">
+            <h4 class="card-title" style="padding: 10px">Sleep Target: Past 3 Days</h4>
+            <canvas id="3dayChart"></canvas>
+            <h4 class="card-footer" style="font-size: 14px">70%. Nearly There!</h4>
+        </div>
+        <div class="card mr-4 mb-4 bg-dark text-white" style="width: 300px; height: 320px; min-width: 300px; min-height: 320px">
+            <h4 class="card-title" style="padding: 10px">Sleep Target: Past 7 Days</h4>
+            <canvas id="7dayChart"></canvas>
+            <h4 class="card-footer" style="font-size: 14px">90%. Great Work!</h4>
+        </div>
+        <div class="card mr-4 mb-4 bg-dark text-white" style="width: 300px; height: 320px; min-width: 300px; min-height: 320px">
             <div class="card-body">
                 <h5 class="card-title">Special title treatment</h5>
                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
@@ -66,7 +69,7 @@
                 {
                     label: "Population (millions)",
                     backgroundColor: ["#00cc00", "#5e5e5e"],
-                    data: [90, 20]
+                    data: [90, 10]
                 }
             ]
         },
