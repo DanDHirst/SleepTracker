@@ -8,7 +8,7 @@
     <div class="card-deck">
         <div class="card mr-4 mb-4 bg-dark text-white" style="width: 300px; height: 320px; min-width: 300px; min-height: 320px">
             <h4 class="card-header">Example Dashboard</h4>
-            <div class="card-body">
+            <div class="card-body mt-3">
                 <a href="#" class="btn btn-secondary mb-4 h-auto" style="width:100%; padding-top: 10px">Add a Diary Entry</a><br>
                 <a href="#" class="btn btn-secondary mb-4 h-auto" style="width:100%; padding-top: 10px">Account</a>
                 <a href="#" class="btn btn-secondary h-auto" style="width:100%; padding-top: 10px">Logout</a>
