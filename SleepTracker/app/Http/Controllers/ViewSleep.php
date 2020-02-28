@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 
 class ViewSleep extends Controller
 {
@@ -21,7 +22,30 @@ class ViewSleep extends Controller
 //            echo $Sleep->Sleep_ID;
 //        }
         $Sleeps = DB::select('call view_user_sleep(2)');
-        return $Sleeps;
+
+
+        $sleeps = [];
+        $calendar=[];
+            foreach ($Sleeps as $key => $value)
+            {
+
+                $sleeps[] = Calendar::event(
+                    $value->Sleep_Notes,
+                    true,
+                    new \DateTime($value->Sleep_Start),
+                    new \DateTime($value->Sleep_End.'+1 day'),
+                    null,
+                    // Add color
+                    [
+                        'color' => '#000000',
+                        'textColor' => '#008000',
+                    ]
+                );
+            }
+
+        $calendar = Calendar::addEvents($sleeps);
+
+        return view('Calender', compact('calendar'));
     }
 
     /**
