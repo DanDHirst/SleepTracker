@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: proj-mysql.uopnet.plymouth.ac.uk
--- Generation Time: Feb 15, 2020 at 06:21 PM
+-- Generation Time: Feb 27, 2020 at 09:01 PM
 -- Server version: 8.0.16
 -- PHP Version: 7.2.19
 
@@ -21,63 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `prco204_c`
 --
-
-DELIMITER $$
---
--- Procedures
---
-
-CREATE DEFINER=`PRCO204_C`@`%` PROCEDURE `add_sleep` (IN `add_User_ID` INT, IN `add_Sleep_Notes` VARCHAR(255), IN `add_Sleep_Start` DATETIME, IN `add_Sleep_End` DATETIME)  NO SQL
-INSERT INTO user_sleep (User_ID, Sleep_Start, Sleep_End, Sleep_Notes)
-VALUES (add_User_ID, add_Sleep_Start, add_Sleep_End, add_Sleep_Notes)$$
-
-CREATE DEFINER=`PRCO204_C`@`%` PROCEDURE `add_user` (IN `add_Email` VARCHAR(64), IN `add_Username` VARCHAR(32), IN `add_Password` VARCHAR(32), IN `add_Country` VARCHAR(56), IN `add_Age` INT(122), IN `add_Gender` VARCHAR(15), IN `add_Security_Q` VARCHAR(150), IN `add_Security_A` VARCHAR(50))  NO SQL
-INSERT INTO user_info (Email, Username, Password, Country, Age, Gender, Security_Question, Security_Answer)
-VALUES (add_Email, add_Username, add_Password, add_Country, add_Age, add_Gender, add_Security_Q, add_Security_A)$$
-
-CREATE DEFINER=`PRCO204_C`@`%` PROCEDURE `create_view_sleeps` ()  NO SQL
-CREATE VIEW view_sleep AS
-SELECT * FROM user_sleep
-END$$
-
-CREATE DEFINER=`PRCO204_C`@`%` PROCEDURE `create_view_users` ()  NO SQL
-CREATE VIEW view_users AS
-SELECT * FROM user_info
-END$$
-
-CREATE DEFINER=`PRCO204_C`@`%` PROCEDURE `update_sleep` (IN `edit_ID` INT, IN `edit_User_ID` INT, IN `Hours_Slept` FLOAT, IN `edit_Sleep_Notes` VARCHAR(255))  NO SQL
-UPDATE user_sleep
-SET
-User_ID = edit_User_ID,
-Sleep_Start = DATE_SUB(NOW(), INTERVAL Hours_Slept HOUR),
-Sleep_End = NOW(),
-Sleep_Notes = edit_Sleep_Notes
-WHERE Sleep_ID = edit_ID$$
-
-CREATE DEFINER=`PRCO204_C`@`%` PROCEDURE `update_user` (IN `edit_ID` INT, IN `edit_Email` VARCHAR(64), IN `edit_Username` VARCHAR(32), IN `edit_Password` VARCHAR(32), IN `edit_Country` VARCHAR(56), IN `edit_Age` INT, IN `edit_Gender` VARCHAR(15), IN `edit_SecurityQ` VARCHAR(150), IN `edit_SecurityA` VARCHAR(50))  NO SQL
-UPDATE user_info
-SET 
-Email = edit_Email, 
-Username = edit_Username, 
-Password = edit_Password, 
-Country = edit_Country, 
-Age = edit_Age, 
-Gender = edit_Gender, 
-Security_Question = edit_SecurityQ, 
-Security_Answer = edit_SecurityA
-WHERE User_ID = edit_ID$$
-
-CREATE DEFINER=`PRCO204_C`@`%` PROCEDURE `view_time_slept` ()  NO SQL
-SELECT Sleep_ID, User_ID, Sleep_Start, Sleep_End, TIMEDIFF(Sleep_End, Sleep_Start) 
-FROM user_sleep$$
-
-CREATE DEFINER=`PRCO204_C`@`%` PROCEDURE `view_user_sleep` (IN `Search_ID` INT)  NO SQL
-SELECT user_info.User_ID, user_sleep.Sleep_ID, Username, Email, user_sleep.Sleep_Start, user_sleep.Sleep_End, user_sleep.Sleep_Notes
-FROM user_info
-JOIN user_sleep ON user_sleep.User_ID = user_info.User_ID
-WHERE user_info.User_ID = Search_ID$$
-
-DELIMITER ;
+CREATE DATABASE IF NOT EXISTS `prco204_c` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `prco204_c`;
 
 -- --------------------------------------------------------
 
@@ -96,8 +41,9 @@ CREATE TABLE `admin_info` (
 --
 
 INSERT INTO `admin_info` (`Admin_ID`, `Username`, `Password`) VALUES
-(1, 'T1Admin', 'test1'),
-(2, 'T2Admin', 'test2');
+(1, 'Hicks', '1234'),
+(2, 'Hirst', '4321'),
+(3, 'Skillman', '3579');
 
 -- --------------------------------------------------------
 
@@ -147,7 +93,12 @@ CREATE TABLE `user_sleep` (
 INSERT INTO `user_sleep` (`Sleep_ID`, `User_ID`, `Sleep_Start`, `Sleep_End`, `Sleep_Notes`) VALUES
 (1, 2, '2020-02-15 13:39:34', '2020-02-15 13:39:34', 'A nanosecond nap.'),
 (2, 1, '2020-02-15 04:02:56', '2020-02-15 15:02:56', '11 Hours!'),
-(3, 2, '2020-02-15 01:05:32', '2020-02-15 15:05:32', 'Huge sleep.');
+(3, 2, '2020-02-15 01:05:32', '2020-02-15 15:05:32', 'Huge sleep.'),
+(32, 1, '2020-02-21 09:30:00', '2020-02-21 19:30:00', ''),
+(34, 1, '2018-06-12 19:30:00', '2018-06-12 21:30:00', ''),
+(35, 1, '2018-06-12 19:30:00', '2018-06-12 21:30:00', ''),
+(36, 2, '2018-06-13 19:30:00', '2018-06-15 21:30:00', 'Sleep was good'),
+(37, 2, '2018-06-12 11:30:00', '2018-06-12 21:30:00', '');
 
 -- --------------------------------------------------------
 
@@ -230,7 +181,7 @@ ALTER TABLE `user_sleep`
 -- AUTO_INCREMENT for table `admin_info`
 --
 ALTER TABLE `admin_info`
-  MODIFY `Admin_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Admin_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user_info`
@@ -242,7 +193,7 @@ ALTER TABLE `user_info`
 -- AUTO_INCREMENT for table `user_sleep`
 --
 ALTER TABLE `user_sleep`
-  MODIFY `Sleep_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `Sleep_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- Constraints for dumped tables
