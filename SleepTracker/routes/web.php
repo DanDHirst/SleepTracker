@@ -13,7 +13,7 @@
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 //    $Sleeps = DB::select('SELECT * FROM `user_sleep`');
 //    return $Sleeps;
     $Sleeps = \App\ViewSleep::all();
@@ -22,7 +22,7 @@ Route::get('/', function () {
     }
   //return view('dashboard');
 });
-Route::resource('sleep', 'ViewSleep'); // goes to the controller ViewSleep
+Route::resource('viewSleep', 'ViewSleep'); // goes to the controller ViewSleep
 
 Route::resource('addSleep', 'addSleep');
 Route::get('dashboard', function (){
@@ -30,4 +30,13 @@ Route::get('dashboard', function (){
 });
 Route::get('addSleep', function (){
     return view('addSleep');
+});
+Route::get('account', function () {
+    return view('account');
+});
+Route::get('login', function () {
+    return view('login');
+});
+Route::get('chartTest', function () {
+    return view('chartTest');
 });

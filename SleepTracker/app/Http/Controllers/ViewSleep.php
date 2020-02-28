@@ -16,10 +16,12 @@ class ViewSleep extends Controller
     {
         //first method that will be called when calling the this controller
 
-        $Sleeps = \App\ViewSleep::all(); // pulls data from model View sleep and stores in an object
-        foreach ($Sleeps as $Sleep){ // iterate through each sleep and echo the sleep ID
-            echo $Sleep->Sleep_ID;
-        }
+//        $Sleeps = \App\ViewSleep::all(); // pulls data from model View sleep and stores in an object
+//        foreach ($Sleeps as $Sleep){ // iterate through each sleep and echo the sleep ID
+//            echo $Sleep->Sleep_ID;
+//        }
+        $Sleeps = DB::select('call view_user_sleep(2)');
+        return $Sleeps;
     }
 
     /**
