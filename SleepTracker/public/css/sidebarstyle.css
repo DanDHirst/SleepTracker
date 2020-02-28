@@ -8,11 +8,13 @@ body {
     background: #777777;
 }
 
+h2 {font-size: 25px}
+
 p {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.7em;
+    font-size: 1.0em;
+    font-weight: 200;
+    line-height: 1.0em;
     color: #999;
 }
 
@@ -64,7 +66,7 @@ a:focus {
     width: 350px;
     position: fixed;
     top: 60px;
-    left: 0;
+    left: -20px;
     height: 100vh;
     z-index: 999;
     background: #777777;
@@ -77,8 +79,9 @@ a:focus {
 }
 
 #sidebar .sidebar-header {
-    padding: 20px;
-    background: #777777;
+    padding: 20px 20px 50px 50px;
+    color: #ffffff;
+    background: none;
 }
 
 #sidebar ul.components {
@@ -87,13 +90,12 @@ a:focus {
 }
 
 #sidebar ul p {
-    color: #fff;
-    padding: 10px;
+    padding: 0;
 }
 
 #sidebar ul li a {
     padding: 30px;
-    font-size: 1.1em;
+    font-size: 1.0em;
     display: block;
 }
 
@@ -144,12 +146,12 @@ ul.CTAs a {
 ----------------------------------------------------- */
 
 #content {
-    width: calc(100% - 400px);
-    margin-right: 50px;
-    min-height: 100vh;
+    width: calc(100% - 350px);
+    margin-right: 10px;
+    /*min-height: 100vh;*/
     transition: all 0.3s;
     position: absolute;
-    top: 80px;
+    top: 20px;
     right: 0;
 }
 
@@ -198,6 +200,7 @@ ul.CTAs a {
     #content {
         width: 100%;
         left: 5px;
-        margin-left: 0;
+        margin-left: 50px;
+        margin-top: 50px;
     }
 }
