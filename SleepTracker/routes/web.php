@@ -31,3 +31,12 @@ Route::get('dashboard', function (){
 Route::get('addSleep', function (){
     return view('addSleep');
 });
+Route::get('account', function () {
+    return view('account');
+});
+Route::get('login', function () {
+    return view('login');
+});
+Route::get('chartTest', function () {
+    return view('chartTest');
+});

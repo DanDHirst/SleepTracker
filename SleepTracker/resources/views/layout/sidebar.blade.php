@@ -25,7 +25,10 @@
 </head>
 
 <body>
-
+    <button type="button" id="sidebarCollapse" class="btn btn-dark" style="margin-left: 20px; margin-top: 20px">
+        <i class="fas fa-align-left"></i>
+        <span>Menu</span>
+    </button>
     <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
@@ -49,9 +52,9 @@
         </nav>
 
         <!-- Page Heading  -->
-        <div id="heading">
+{{--        <div id="heading">
 
-            <nav class="navbar navbar-expand-lg">
+            <nav class="navbar navbar-expand-sm navbar-dark">
                 <div class="container-fluid">
 
                     <button type="button" id="sidebarCollapse" class="btn btn-dark">
@@ -67,7 +70,7 @@
                     </button>
                 </div>
             </nav>
-        </div>
+        </div>--}}
     </div>
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
