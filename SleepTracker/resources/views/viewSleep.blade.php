@@ -1,12 +1,11 @@
+
 <!-- calendar.blade.php -->
-<!doctype html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
-</head>
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
+
 <body>
-<div class="container">
+<div class="container" id="content">
     @if (\Session::has('success'))
         <div class="alert alert-success">
             <p>{{ \Session::get('success') }}</p>
@@ -26,4 +25,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
 {!! $calendar->script() !!}
 </body>
-</html>
+
+@extends('layout.sidebar')
