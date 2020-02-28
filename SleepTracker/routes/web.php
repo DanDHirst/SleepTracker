@@ -22,11 +22,15 @@ Route::get('/', function () {
     }
   //return view('dashboard');
 });
+
 Route::resource('viewSleep', 'ViewSleep'); // goes to the controller ViewSleep
 
 Route::resource('addSleep', 'addSleep');
 Route::get('dashboard', function (){
     return view('dashboard');
+});
+Route::get('Calender', function (){
+    return view('Calender');
 });
 Route::get('addSleep', function (){
     return view('addSleep');
