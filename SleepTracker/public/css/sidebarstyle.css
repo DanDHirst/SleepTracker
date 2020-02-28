@@ -173,6 +173,14 @@ ul.CTAs a {
     right: 0;
 }
 
+#calendar {
+    height: 450px;
+    width: 500px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */

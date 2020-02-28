@@ -22,7 +22,6 @@
                         <div class="form-group">
                             <label for="Start-Time">Start Time:</label>
                             <input type="datetime-local" id="startTime" name="startTime" value="2018-06-12T19:30" class="form-control" required>
-
                         </div>
                         <div class="form-group">
                             <label for="End-Time">End Time:</label>
