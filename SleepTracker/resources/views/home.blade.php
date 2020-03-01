@@ -12,9 +12,41 @@
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
+
                     @endif
 
-                    You are logged in!
+                        <div class="card bg-dark text-white" id="content">
+                            <div class="card-body">
+                                <form method="post" action="" id="registration" class="login-form">
+                                    <div class="form-group text-center">
+                                        <p><span class="text-white">Account Overview</span></p>
+                                    </div>
+                                    <hr/>
+                                    <div class="form-group w-25">
+                                        <label for="username">Username:</label>
+                                        <input type="text" id="username" placeholder="{{Auth::user()->name}}" minlength="1" name="username" class="form-control" required>
+                                    </div>
+                                    <div class="form-group w-50">
+                                        <label for="email">Email:</label>
+                                        <input type="text" id="email" placeholder="{{Auth::user()->email}}" minlength="1" name="email" class="form-control" required>
+                                    </div>
+                                    <div class="form-group w-25">
+                                        <label for="age">Age:</label>
+                                        <input type="text" id="age" placeholder="{{Auth::user()->age}}" minlength="1" name="age" class="form-control" required>
+                                    </div>
+                                    <div class="form-group w-25">
+                                        <label for="country">Age:</label>
+                                        <input type="text" id="country" placeholder="{{Auth::user()->country}}" minlength="1" name="country" class="form-control" required>
+                                    </div>
+                                    <div class="form-group w-25">
+                                        <label for="gender">Age:</label>
+                                        <input type="text" id="gender" placeholder="{{Auth::user()->gender}}" minlength="1" name="gender" class="form-control" required>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+
                 </div>
             </div>
         </div>

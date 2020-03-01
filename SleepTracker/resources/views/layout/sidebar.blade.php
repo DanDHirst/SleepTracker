@@ -48,6 +48,9 @@
                 <li>
                     <a href="#">Advice</a>
                 </li>
+                <li>
+                    <a href="home">@if(Auth::check())Logout @else Register/Login @endif</a>
+                </li>
             </ul>
         </nav>
 

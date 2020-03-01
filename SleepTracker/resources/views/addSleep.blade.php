@@ -14,7 +14,7 @@
                         <div class="form-group">
                             <label for="UserID">UserID:</label>
                             <input type="text" id="userID" name="userID" class="form-control" value="
-@if (Auth::check()){{ Auth::user()->id }}@endif" >
+                            @if (Auth::check()){{ Auth::user()->id }}@endif" >
                         </div>
                         <div class="form-group text-center">
                             <p><span>Please input Sleep details below</span></p>
