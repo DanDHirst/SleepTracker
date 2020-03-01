@@ -13,7 +13,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="UserID">UserID:</label>
-                            <input type="text" id="userID" name="userID" class="form-control" >
+                            <input type="text" id="userID" name="userID" class="form-control" value="{{ Auth::user()->id }}" >
                         </div>
                         <div class="form-group text-center">
                             <p><span>Please input Sleep details below</span></p>
