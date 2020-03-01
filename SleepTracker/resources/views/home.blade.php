@@ -24,23 +24,23 @@
                                     <hr/>
                                     <div class="form-group w-25">
                                         <label for="username">Username:</label>
-                                        <input type="text" id="username" placeholder="{{Auth::user()->name}}" minlength="1" name="username" class="form-control" required>
+                                        <input type="text" id="username" value="{{Auth::user()->name}}" minlength="1" name="username" class="form-control" required>
                                     </div>
                                     <div class="form-group w-50">
                                         <label for="email">Email:</label>
-                                        <input type="text" id="email" placeholder="{{Auth::user()->email}}" minlength="1" name="email" class="form-control" required>
+                                        <input type="text" id="email" value="{{Auth::user()->email}}" minlength="1" name="email" class="form-control" required>
                                     </div>
                                     <div class="form-group w-25">
                                         <label for="age">Age:</label>
-                                        <input type="text" id="age" placeholder="{{Auth::user()->age}}" minlength="1" name="age" class="form-control" required>
+                                        <input type="text" id="age" value="{{Auth::user()->age}}" minlength="1" name="age" class="form-control" required>
                                     </div>
                                     <div class="form-group w-25">
-                                        <label for="country">Age:</label>
-                                        <input type="text" id="country" placeholder="{{Auth::user()->country}}" minlength="1" name="country" class="form-control" required>
+                                        <label for="country">Country:</label>
+                                        <input type="text" id="country" value="{{Auth::user()->country}}" minlength="1" name="country" class="form-control" required>
                                     </div>
                                     <div class="form-group w-25">
-                                        <label for="gender">Age:</label>
-                                        <input type="text" id="gender" placeholder="{{Auth::user()->gender}}" minlength="1" name="gender" class="form-control" required>
+                                        <label for="gender">Gender:</label>
+                                        <input type="text" id="gender" value="{{Auth::user()->gender}}" minlength="1" name="gender" class="form-control" required>
                                     </div>
                                 </form>
                             </div>
