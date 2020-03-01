@@ -40,6 +40,48 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="Country" class="col-md-4 col-form-label text-md-right">Country</label>
+
+                            <div class="col-md-6">
+                                <input id="country" type="text" class="form-control" name="country" value="{{ old('country') }}" required autofocus>
+
+                                @if ($errors->has('country'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('country') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                                <label for="age" class="col-md-4 col-form-label text-md-right">Age</label>
+
+                                <div class="col-md-6">
+                                    <input id="age" type="text" class="form-control" name="age" value="{{ old('age') }}" required autofocus>
+
+                                    @if ($errors->has('age'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('age') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                        <div class="form-group row">
+                            <label for="gender" class="col-md-4 col-form-label text-md-right">Gender</label>
+
+                            <div class="col-md-6">
+                                <input id="gender" type="text" class="form-control" name="gender" value="{{ old('gender') }}" required autofocus>
+
+                                @if ($errors->has('gender'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('gender') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                                <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
