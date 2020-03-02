@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Auth;
 
 class addSleep extends Controller
 {
@@ -39,7 +40,7 @@ class addSleep extends Controller
     {
         //
 
-        $sleep = new Sleep($request->userID,$request->notes,$request->startTime,$request->endTime);
+        $sleep = new Sleep(Auth::user()->id,$request->notes,$request->startTime,$request->endTime);
 
         $sleep->save();
         return view('addSleep');
