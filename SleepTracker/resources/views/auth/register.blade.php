@@ -64,7 +64,7 @@
                                 <label for="age" class="col-md-4 col-form-label text-md-right">Age</label>
 
                                 <div class="col-md-6">
-                                    <input id="age" type="text" class="form-control" name="age" value="{{ old('age') }}" required autofocus>
+                                    <input id="age" type="number" class="form-control" name="age" value="{{ old('age') }}" required autofocus>
 
                                     @if ($errors->has('age'))
                                         <span class="help-block">
