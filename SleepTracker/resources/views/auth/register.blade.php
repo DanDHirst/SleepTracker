@@ -41,9 +41,15 @@
 
                         <div class="form-group row">
                             <label for="Country" class="col-md-4 col-form-label text-md-right">Country</label>
-
                             <div class="col-md-6">
-                                <input id="country" type="text" class="form-control" name="country" value="{{ old('country') }}" required autofocus>
+                                <select id="country" placeholder="England" name="country" class="form-control" value="{{ old('country') }}" required autofocus>
+                                    <option value="Other">Other</option>
+                                    <option value="England">England</option>
+
+                                    <option value="Scotland">Scotland</option>
+                                    <option value="Wales">Wales</option>
+                                    <option value="North Ireland">North Ireland</option>
+                                </select>
 
                                 @if ($errors->has('country'))
                                     <span class="help-block">
@@ -52,6 +58,7 @@
                                 @endif
                             </div>
                         </div>
+
 
                         <div class="form-group row">
                                 <label for="age" class="col-md-4 col-form-label text-md-right">Age</label>
@@ -71,7 +78,11 @@
                             <label for="gender" class="col-md-4 col-form-label text-md-right">Gender</label>
 
                             <div class="col-md-6">
-                                <input id="gender" type="text" class="form-control" name="gender" value="{{ old('gender') }}" required autofocus>
+                                <select id="gender" placeholder="Other" name="gender" class="form-control" value="{{ old('gender') }}" required autofocus>
+                                    <option value="Other">Other</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
 
                                 @if ($errors->has('gender'))
                                     <span class="help-block">
@@ -80,6 +91,7 @@
                                 @endif
                             </div>
                         </div>
+
 
                                 <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
