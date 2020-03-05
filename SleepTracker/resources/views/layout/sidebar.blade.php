@@ -25,7 +25,7 @@
 </head>
 
 <body>
-    <button type="button" id="sidebarCollapse" class="btn btn-dark" style="margin-left: 20px; margin-top: 20px">
+    <button type="button" id="sidebarCollapse" class="btn btn-dark">
         <i class="fas fa-align-left"></i>
         <span>Menu</span>
     </button>
@@ -49,7 +49,10 @@
                     <a href="#">Advice</a>
                 </li>
                 <li>
-                    <a href="home">@if(Auth::check())Logout @else Register/Login @endif</a>
+                    @if(Auth::check())<a id="logoutBtn" onclick="document.getElementById('logout-form').submit()"
+                    onmouseover="this.style.color='red'"
+                    onmouseout="this.style.color='#ffffff';">Logout</a>
+                    @else<a href="home">Register/Login </a> @endif
                 </li>
             </ul>
         </nav>

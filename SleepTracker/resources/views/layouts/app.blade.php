@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+{{--    <script src="{{ asset('js/app.js') }}" defer></script>--}}
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -23,13 +23,16 @@
     body {
         background-color: #777777;
     }
+    a {
+        font-size: 16px !important;
+    }
 </style>
 
 <body>
 
-    <div id="app">
+    <div id="app" style="font-size: 14px">
         <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm">
-            <div class="container" >
+            <div class="container" style="font-size: 14px">
                 <a class="navbar-brand" href="{{ url('dashboard') }}" style="color: white">
                     {{ config('app.name', 'Account management') }}
                 </a>
@@ -72,6 +75,8 @@
                                         @csrf
                                     </form>
                                 </div>
+
+                                <button onclick="document.getElementById('logout-form').submit();">LOGOUT</button>
                             </li>
                         @endguest
                     </ul>
