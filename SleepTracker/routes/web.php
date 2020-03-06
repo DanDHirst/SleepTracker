@@ -41,8 +41,8 @@ Route::get('account', function () {
 Route::get('login', function () {
     return view('login');
 });
-Route::get('chartTest', function () {
-    return view('chartTest');
+Route::get('EventData', function () {
+    return view('EventData');
 });
 
 Auth::routes();

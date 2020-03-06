@@ -40,7 +40,7 @@
                     <a href="SleepData">Sleep Entry</a>
                 </li>
                 <li>
-                    <a href="#">Event Entry</a>
+                    <a href="EventData">Event Entry</a>
                 </li>
                 <li>
                     <a href="home">Account</a>

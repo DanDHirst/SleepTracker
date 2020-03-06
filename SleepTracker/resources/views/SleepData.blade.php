@@ -42,6 +42,7 @@
                 </div>
             </div>
             <div class="card bg-dark text-white" id="sleepTable">
+                <div class="card-header">Recorded Sleep</div>
                 <table class="table-borderless text-white">
                     <thead>
                     <tr>
