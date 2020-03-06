@@ -44,9 +44,8 @@ class SleepData extends Controller
         //
 
         $sleep = new Sleep(Auth::user()->id,$request->notes,$request->startTime,$request->endTime);
-
         $sleep->save();
-        return view('SleepData');
+        return redirect('SleepData');
     }
 
     /**
