@@ -42,16 +42,54 @@
                 </div>
             </div>
             <div class="card bg-dark text-white" id="sleepTable">
-                <div class="card-body">
-                    @if ($Sleeps != null)
+                <table class="table-borderless text-white">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>
+                            <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick=""></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                        <td>
+                            <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick=""></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                        <td>
+                            <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick=""></a>
+                        </td>
+                    </tr>
+                    </tbody>
+{{--                    @if ($Sleeps != null)
                         @foreach($Sleeps as $Sleep)
                         <li>
                            <p>{{$Sleep->id.$Sleep->Sleep_Start.$Sleep->Sleep_End.$Sleep->Sleep_Notes}}</p>
 
                         </li>
                         @endforeach
-                    @endif
-                </div>
+                    @endif--}}
+                </table>
             </div>
         </div>
     </div>
