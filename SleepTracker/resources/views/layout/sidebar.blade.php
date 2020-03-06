@@ -37,7 +37,7 @@
                     <a href="#">Dashboard</a>
                 </li>
                 <li>
-                    <a href="addSleep">Sleep Entry</a>
+                    <a href="SleepData">Sleep Entry</a>
                 </li>
                 <li>
                     <a href="#">Event Entry</a>

@@ -41,7 +41,14 @@
             </div>
             <div class="card bg-dark text-white" id="sleepTable">
                 <div class="card-body">
-                    Enter table here
+                    @if ($Sleeps != null)
+                        @foreach($Sleeps as $Sleep)
+                        <li>
+                           <p>{{$Sleep->id.$Sleep->Sleep_Start.$Sleep->Sleep_End.$Sleep->Sleep_Notes}}</p>
+
+                        </li>
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>
