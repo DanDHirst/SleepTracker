@@ -8,11 +8,6 @@
     @endif
     <div class="container" id="content">
         <div class="card-deck">
-            <div class="card bg-dark text-white" id="sleepTable">
-                <div class="card-body">
-                    Enter table here
-                </div>
-            </div>
             <div class="card bg-dark text-white">
                 <div class="card-header">
                     <a style="font-size: 20px">Add Sleep</a>
@@ -42,6 +37,11 @@
                             <button style="" type="submit" name="addBtn" id="addBtn" class="mt-6 btn btn-dark">Add</button>
                         </div>
                     </form>
+                </div>
+            </div>
+            <div class="card bg-dark text-white" id="sleepTable">
+                <div class="card-body">
+                    Enter table here
                 </div>
             </div>
         </div>
