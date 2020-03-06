@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use Auth;
 
-class addSleep extends Controller
+class SleepData extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,10 @@ class addSleep extends Controller
     public function index()
     {
         //
-        return view('addSleep');
+        $Sleeps = null;
+        $SleepID = Auth::user()->id;
+        $Sleeps = DB::select('call view_user_sleep(?)',[$SleepID]);
+        return view('SleepData',compact('Sleeps'));
     }
 
     /**
@@ -43,7 +46,7 @@ class addSleep extends Controller
         $sleep = new Sleep(Auth::user()->id,$request->notes,$request->startTime,$request->endTime);
 
         $sleep->save();
-        return view('addSleep');
+        return view('SleepData');
     }
 
     /**
