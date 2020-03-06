@@ -63,7 +63,7 @@ a:focus {
 }
 
 #sidebarCollapse {
-    position: absolute;
+    position: fixed;
     left: 20px;
     top: 80px;
 }
