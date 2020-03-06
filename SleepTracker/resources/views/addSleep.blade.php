@@ -6,8 +6,13 @@
             window.location.href = '{{url("home")}}';
         </script>
     @endif
-    <div class="container" id="content" style="width: 40%">
+    <div class="container" id="content">
         <div class="card-deck">
+            <div class="card bg-dark text-white" id="sleepTable">
+                <div class="card-body">
+                    Enter table here
+                </div>
+            </div>
             <div class="card bg-dark text-white">
                 <div class="card-header">
                     <a style="font-size: 20px">Add Sleep</a>

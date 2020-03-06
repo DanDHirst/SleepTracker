@@ -37,16 +37,13 @@
                     <a href="#">Dashboard</a>
                 </li>
                 <li>
-                    <a href="addSleep">New Entry</a>
+                    <a href="addSleep">Sleep Entry</a>
                 </li>
                 <li>
-                    <a href="#">Calendar</a>
+                    <a href="#">Event Entry</a>
                 </li>
                 <li>
                     <a href="#">Account</a>
-                </li>
-                <li>
-                    <a href="#">Advice</a>
                 </li>
                 <li>
                     @if(Auth::check())<a id="logoutBtn" onclick="document.getElementById('logout-form').submit()"
