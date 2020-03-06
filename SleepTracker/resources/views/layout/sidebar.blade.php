@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Collapsible sidebar using Bootstrap 4</title>
+    <title>Sleep tracker</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -34,7 +34,7 @@
         <nav id="sidebar">
             <ul class="list-unstyled components">
                 <li>
-                    <a href="#">Dashboard</a>
+                    <a href="dashboard">Dashboard</a>
                 </li>
                 <li>
                     <a href="SleepData">Sleep Entry</a>
@@ -43,7 +43,7 @@
                     <a href="#">Event Entry</a>
                 </li>
                 <li>
-                    <a href="#">Account</a>
+                    <a href="home">Account</a>
                 </li>
                 <li>
                     @if(Auth::check())<a id="logoutBtn" onclick="document.getElementById('logout-form').submit()"
