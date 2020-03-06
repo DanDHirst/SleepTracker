@@ -45,7 +45,6 @@
                 <table class="table-borderless text-white">
                     <thead>
                     <tr>
-                        <th scope="col">#</th>
                         <th scope="col">Sleep Start</th>
                         <th scope="col">Sleep End</th>
                         <th scope="col">Sleep Notes</th>
@@ -56,11 +55,9 @@
                     @if ($Sleeps != null)
                         @foreach($Sleeps as $Sleep)
                     <tr>
-
-                        <td>{{$Sleep->id}}</td>
                         <td>{{$Sleep->Sleep_Start}}</td>
                         <td>{{$Sleep->Sleep_End}}</td>
-                        <td>{{$Sleep->Sleep_End}}</td>
+                        <td>{{$Sleep->Sleep_Notes}}</td>
                         <td>
                             <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="{{$Sleep->id}}"></a>
                         </td>
