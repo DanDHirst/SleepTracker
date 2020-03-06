@@ -18,6 +18,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Font -->
+    <script src="https://use.fontawesome.com/9ac7562abb.js"></script>
+
 </head>
 <style>
     body {
@@ -75,9 +79,11 @@
                                         @csrf
                                     </form>
                                 </div>
-
-                                <button onclick="document.getElementById('logout-form').submit();">LOGOUT</button>
                             </li>
+{{--                            <button id="navLogout" class="btn btn-light">--}}
+{{--                                <a class="fas fa-sign-out-alt" aria-hidden="true" onclick="document.getElementById('logout-form').submit();"></a>--}}
+{{--                                <span>Logout</span>--}}
+{{--                            </button>--}}
                         @endguest
                     </ul>
                 </div>

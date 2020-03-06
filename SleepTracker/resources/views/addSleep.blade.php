@@ -1,5 +1,7 @@
 @extends('layout.sidebar')
 @extends('layout.footer')
+@extends('layouts.app')
+@section('content')
 @section('sidebar')
     @if(!Auth::check())
         <script>
