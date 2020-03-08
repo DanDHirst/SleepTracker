@@ -60,7 +60,7 @@
                         <td>{{$Sleep->Sleep_End}}</td>
                         <td>{{$Sleep->Sleep_Notes}}</td>
                         <td>
-                            <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteUser({{$Sleep->Sleep_ID}})"></a>
+                            <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteSleep({{$Sleep->Sleep_ID}})"></a>
                         </td>
                     </tr>
                         @endforeach
@@ -71,21 +71,21 @@
             </div>
         </div>
     </div>
-    <form id="deleteUser" method="POST" action="" hidden>
+    <form id="deleteSleep" method="POST" action="" hidden>
         {{ csrf_field() }}
         {{ method_field('DELETE') }}
 
         <div class="form-group">
-            <input id="deleteUserBtn" type="submit" class="btn btn-danger delete-user" value="Delete user" hidden>
+            <input id="deleteSleepBtn" type="submit" class="btn btn-danger delete-user" value="Delete user" hidden>
         </div>
     </form>
     @section('footer')
 
 
         <script>
-        function deleteUser(userID) {
-            document.getElementById("deleteUser").action = "SleepData/"+userID;
-            document.getElementById("deleteUserBtn").click();
+        function deleteSleep(userID) {
+            document.getElementById("deleteSleep").action = "SleepData/"+userID;
+            document.getElementById("deleteSleepBtn").click();
         }
         </script>
 

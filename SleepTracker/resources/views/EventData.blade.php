@@ -46,10 +46,10 @@
                 <table class="table-borderless text-white">
                     <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Start Time</th>
+                        <th scope="col">End Time</th>
                         <th scope="col">Delete</th>
                     </tr>
                     </thead>
@@ -57,7 +57,10 @@
                     @if ($Events != null)
                         @foreach($Events as $Event)
                             <tr>
-                                <td>alert({{$Event->title}})</td>
+                                <td>{{$Event->title}}</td>
+                                <td>{{$Event->description}}</td>
+                                <td>{{$Event->start_time}}</td>
+                                <td>{{$Event->end_time}}</td>
 
                                 <td>
                                     <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteUser({{$Event->id}})"></a>
@@ -73,3 +76,9 @@
     </div>
 @section('footer')
 
+    <script>
+        function deleteEvent(userID) {
+            document.getElementById("deleteUser").action = "SleepData/"+userID;
+            document.getElementById("deleteUserBtn").click();
+        }
+    </script>
