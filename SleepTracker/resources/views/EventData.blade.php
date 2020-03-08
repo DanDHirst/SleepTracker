@@ -54,33 +54,18 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>
-                            <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick=""></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>
-                            <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick=""></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                        <td>
-                            <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick=""></a>
-                        </td>
-                    </tr>
+                    @if ($Events != null)
+                        @foreach($Events as $Event)
+                            <tr>
+                                {{--<td>{{$Event->Sleep_Start}}</td>
+                                <td>{{$Event->Sleep_End}}</td>
+                                <td>{{$Event->Sleep_Notes}}</td>--}}
+                                <td>
+                                    <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteUser({{$Sleep->Sleep_ID}})"></a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
                     </tbody>
                     {{--                    @if ($Sleeps != null)
                                             @foreach($Sleeps as $Sleep)
