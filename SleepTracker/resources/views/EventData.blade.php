@@ -63,7 +63,7 @@
                                 <td>{{$Event->end_time}}</td>
 
                                 <td>
-                                    <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteUser({{$Event->id}})"></a>
+                                    <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteEvent({{$Event->id}})"></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -74,11 +74,19 @@
             </div>
         </div>
     </div>
+    <form id="deleteEvent" method="POST" action="" hidden>
+        {{ csrf_field() }}
+        {{ method_field('DELETE') }}
+
+        <div class="form-group">
+            <input id="deleteEventBtn" type="submit" class="btn btn-danger delete-user" value="Delete user" hidden>
+        </div>
+    </form>
 @section('footer')
 
     <script>
         function deleteEvent(userID) {
-            document.getElementById("deleteUser").action = "SleepData/"+userID;
-            document.getElementById("deleteUserBtn").click();
+            document.getElementById("deleteEvent").action = "EventData/"+userID;
+            document.getElementById("deleteEventBtn").click();
         }
     </script>

@@ -85,5 +85,7 @@ class EventData extends Controller
     public function destroy($id)
     {
         //
+        DB::select('CALL drop_event(?)', [$id]);
+        return redirect('EventData');
     }
 }
