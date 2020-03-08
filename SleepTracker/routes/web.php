@@ -25,24 +25,24 @@ Route::get('/', function () {
 
 Route::resource('viewSleep', 'ViewSleep'); // goes to the controller ViewSleep
 
-Route::resource('addSleep', 'addSleep');
+Route::resource('SleepData', 'SleepData');
 Route::get('dashboard', function (){
     return view('dashboard');
 });
 Route::get('Calender', function (){
     return view('Calender');
 });
-Route::get('addSleep', function (){
-    return view('addSleep');
-});
+//Route::get('addSleep', function (){
+//    return view('addSleep');
+//});
 Route::get('account', function () {
     return view('account');
 });
 Route::get('login', function () {
     return view('login');
 });
-Route::get('chartTest', function () {
-    return view('chartTest');
+Route::get('EventData', function () {
+    return view('EventData');
 });
 
 Auth::routes();
