@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use Illuminate\Support\Facades\Auth;
 
 class EventData extends Controller
 {
@@ -15,7 +17,8 @@ class EventData extends Controller
     {
         //
         $Events = null;
-        return view('EventData',compact('$Events'));
+        $Events = DB::select("CALL view_all_events(?)", [Auth::user()->id]);
+        return view('EventData',compact('Events'));
     }
 
     /**

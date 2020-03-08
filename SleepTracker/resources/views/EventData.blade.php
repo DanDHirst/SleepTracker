@@ -57,24 +57,16 @@
                     @if ($Events != null)
                         @foreach($Events as $Event)
                             <tr>
-                                {{--<td>{{$Event->Sleep_Start}}</td>
-                                <td>{{$Event->Sleep_End}}</td>
-                                <td>{{$Event->Sleep_Notes}}</td>--}}
+                                <td>alert({{$Event->title}})</td>
+
                                 <td>
-                                    <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteUser({{$Sleep->Sleep_ID}})"></a>
+                                    <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteUser({{$Event->id}})"></a>
                                 </td>
                             </tr>
                         @endforeach
                     @endif
                     </tbody>
-                    {{--                    @if ($Sleeps != null)
-                                            @foreach($Sleeps as $Sleep)
-                                            <li>
-                                               <p>{{$Sleep->id.$Sleep->Sleep_Start.$Sleep->Sleep_End.$Sleep->Sleep_Notes}}</p>
 
-                                            </li>
-                                            @endforeach
-                                        @endif--}}
                 </table>
             </div>
         </div>
