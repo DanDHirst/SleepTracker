@@ -92,5 +92,8 @@ class SleepData extends Controller
     public function destroy($id)
     {
         //
+        DB::select("CALL drop_sleeps(?)", [$id]);
+        return redirect('SleepData');
+
     }
 }
