@@ -17,7 +17,9 @@ class SleepData extends Controller
     {
         //
         $Sleeps = null;
-        $SleepID = Auth::user()->id;
+        if(Auth::check()) {
+            $SleepID = Auth::user()->id;
+        }
         $Sleeps = DB::select('call view_user_sleep(?)',[$SleepID]);
         return view('SleepData',compact('Sleeps'));
     }

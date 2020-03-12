@@ -17,7 +17,10 @@ class EventData extends Controller
     {
         //
         $Events = null;
-        $Events = DB::select("CALL view_all_events(?)", [Auth::user()->id]);
+        if(Auth::check()){
+            $Events = DB::select("CALL view_all_events(?)", [Auth::user()->id]);
+        }
+
         return view('EventData',compact('Events'));
     }
 
