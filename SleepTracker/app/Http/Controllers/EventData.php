@@ -43,6 +43,11 @@ class EventData extends Controller
     public function store(Request $request)
     {
         //
+        return $request;
+        $event = new Sleep(Auth::user()->id,$request->title,$request->description,$request->startTime,$request->endTime);
+
+        $event->save();
+        return redirect('EventData');
     }
 
     /**

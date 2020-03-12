@@ -15,7 +15,7 @@
                     <a style="font-size: 20px">Add Event</a>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="CHANGE THIS" class="login-form">
+                    <form method="post" action="EventData" class="login-form">
                         @csrf
 
                         <div class="form-group text-center">
