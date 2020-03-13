@@ -26,6 +26,7 @@ Route::get('/', function () {
 Route::resource('viewSleep', 'ViewSleep'); // goes to the controller ViewSleep
 
 Route::resource('SleepData', 'SleepData');
+Route::resource('EventData', 'EventData');
 Route::get('dashboard', function (){
     return view('dashboard');
 });
@@ -40,9 +41,6 @@ Route::get('account', function () {
 });
 Route::get('login', function () {
     return view('login');
-});
-Route::get('EventData', function () {
-    return view('EventData');
 });
 
 Auth::routes();
