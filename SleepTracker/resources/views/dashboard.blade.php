@@ -24,7 +24,7 @@
         <div class="card mr-4 mb-4 bg-dark text-white" style="width: 300px; height: 320px; min-width: 300px; min-height: 320px">
             <h4 class="card-title" style="padding: 10px">Sleep Target: Past 7 Days</h4>
             <canvas id="7dayChart"></canvas>
-            <h4 class="card-footer" style="font-size: 14px">90%. Great Work!</h4>
+            <h4 class="card-footer" style="font-size: 14px">@if($lastWeekTimeMissed !=0 && $lastWeekAmount != 0 ){{ number_format((($lastWeekTimeMissed/ $lastWeekAmount) *100),2) }}%. @else 100% @endif</h4>
         </div>
         <div class="card mr-4 mb-4 bg-dark text-white" style="width: 300px; height: 320px; min-width: 300px; min-height: 320px">
             <div class="card-body">
@@ -71,7 +71,7 @@
                 {
                     label: "Population (millions)",
                     backgroundColor: ["#00cc00", "#5e5e5e"],
-                    data: [90, 10]
+                    data: [{{$lastWeekAmount}}, {{$lastWeekTimeMissed}}]
                 }
             ]
         },
