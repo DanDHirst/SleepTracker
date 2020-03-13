@@ -30,6 +30,7 @@ class viewUsers extends Controller
     public function create()
     {
         //
+        return "create";
     }
 
     /**
@@ -41,6 +42,8 @@ class viewUsers extends Controller
     public function store(Request $request)
     {
         //
+
+        return $request;
     }
 
     /**
@@ -52,6 +55,7 @@ class viewUsers extends Controller
     public function show($id)
     {
         //
+        return "show";
     }
 
     /**
@@ -63,6 +67,7 @@ class viewUsers extends Controller
     public function edit($id)
     {
         //
+        return "edit";
     }
 
     /**
@@ -75,6 +80,7 @@ class viewUsers extends Controller
     public function update(Request $request, $id)
     {
         //
+        return "update";
     }
 
     /**

@@ -31,6 +31,7 @@
                                 <td>{{$Users->gender}}</td>
                                 <td>
                                     <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteUser({{$Users->id}})"></a>
+                                    <button class="btn btn-info" onclick="showUser({{$Users}})">Edit</button>
                                 </td>
                             </tr>
                         @endforeach
@@ -40,14 +41,15 @@
             </div>
             <div class="card bg-dark text-white" id="editUser">
                 <div class="card-header">Update User Records</div>
-                <form>
+                <form method="post" action="viewUsers">
+                    @csrf
                     <div class="form-group">
                         <label for="id">ID:</label>
-                        <input type="text" id="id" value="" name="id" class="form-control w-auto" required>
+                        <input type="text" id="id" value="" name="id" class="form-control w-auto" required readonly>
                         <label for="name">Name</label>
                         <input type="text" id="name" value="" name="name" class="form-control w-auto" required>
                         <label for="email">Email</label>
-                        <input type="text" id="email" value="" name="email" class="form-control w-auto" required>
+                        <input type="email" id="email" value="" name="email" class="form-control w-auto" required>
                         <label for="country">Country</label>
                         <select id="country" value="" name="country" class="form-control" style="width: auto" required>
                             <option value="Other">Other</option>
@@ -64,7 +66,7 @@
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                         </select><br>
-                        <input type="submit" id="submitUpdate" value="Update" name="submitUpdate" class="mt-6 btn btn-dark">
+                        <input type="submit" id="submitUpdate" value="Update" class="mt-6 btn btn-danger">
                     </div>
 
                 </form>
@@ -83,6 +85,17 @@
 @section('footer')
 
     <script>
+
+        function showUser(User){
+            document.getElementById("id").value = User.id;
+            document.getElementById("name").value = User.name;
+            document.getElementById("email").value = User.email;
+            document.getElementById("country").value = User.country;
+            document.getElementById("age").value = User.age;
+            document.getElementById("gender").value = User.gender;
+
+        }
+
         function deleteUser(userID) {
             document.getElementById("deleteUser").action = "viewUsers/"+userID;
             document.getElementById("deleteUserBtn").click();
