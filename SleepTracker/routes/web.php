@@ -13,7 +13,7 @@
 
 
 Route::get('/', function () {
-    return view('dashboard');
+    return redirect('dashboard');
 //    $Sleeps = DB::select('SELECT * FROM `user_sleep`');
 //    return $Sleeps;
     $Sleeps = \App\ViewSleep::all();
@@ -27,9 +27,7 @@ Route::resource('viewSleep', 'ViewSleep'); // goes to the controller ViewSleep
 
 Route::resource('SleepData', 'SleepData');
 Route::resource('EventData', 'EventData');
-Route::get('dashboard', function (){
-    return view('dashboard');
-});
+Route::resource('dashboard', 'Dashboard');
 Route::get('Calender', function (){
     return view('Calender');
 });

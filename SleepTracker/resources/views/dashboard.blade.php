@@ -71,7 +71,7 @@
                 {
                     label: "Population (millions)",
                     backgroundColor: ["#00cc00", "#5e5e5e"],
-                    data: [90, 10]
+                    data: [{{$lastWeekAmount}}, {{$lastWeekTimeMissed}}]
                 }
             ]
         },
