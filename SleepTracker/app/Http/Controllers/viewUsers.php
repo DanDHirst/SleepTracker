@@ -42,8 +42,9 @@ class viewUsers extends Controller
     public function store(Request $request)
     {
         //
-
-        return $request;
+        $user = new UserModel($request->id,$request->name,$request->email,$request->country,$request->age,$request->gender);
+        $user->update();
+        return redirect('viewUsers');
     }
 
     /**
