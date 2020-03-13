@@ -3,11 +3,6 @@
 @extends('layouts.app')
 @section('content')
 @section('sidebar')
-    @if(!Auth::check())
-        <script>
-            window.location.href = '{{url("home")}}';
-        </script>
-    @endif
     <div class="container" id="content">
         <div class="card-deck">
             <div class="card bg-dark text-white scroll" id="userTable">
@@ -35,7 +30,7 @@
                                 <td>{{$Users->age}}</td>
                                 <td>{{$Users->gender}}</td>
                                 <td>
-                                    <a class="fas fa-times-circle text-danger" aria-hidden="true"></a>
+                                    <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteUser({{$Users->id}})"></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -75,14 +70,22 @@
                 </form>
             </div>
         </div>
+        <form id="deleteUser" method="POST" action="" hidden>
+            {{ csrf_field() }}
+            {{ method_field('DELETE') }}
+
+            <div class="form-group">
+                <input id="deleteUserBtn" type="submit" class="btn btn-danger delete-user" value="Delete user" hidden>
+            </div>
+        </form>
     </div>
 
 @section('footer')
 
     <script>
-        function deleteSleep(userID) {
-            document.getElementById("deleteSleep").action = "SleepData/"+userID;
-            document.getElementById("deleteSleepBtn").click();
+        function deleteUser(userID) {
+            document.getElementById("deleteUser").action = "viewUsers/"+userID;
+            document.getElementById("deleteUserBtn").click();
         }
     </script>
 

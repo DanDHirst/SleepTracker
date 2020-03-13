@@ -16,9 +16,9 @@ class viewUsers extends Controller
     public function index()
     {
         $Users = null;
-        if(Auth::check()){
+
             $Users = \App\viewUsers::all();;
-        }
+
         return view('viewUsers',compact('Users'));
     }
 
@@ -85,6 +85,8 @@ class viewUsers extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::select('CALL drop_user_sleeps(?)',[$id]);
+        DB::select('CALL drop_user(?)',[$id]);
+        return redirect('viewUsers');
     }
 }
