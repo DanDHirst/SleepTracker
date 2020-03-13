@@ -24,4 +24,9 @@ class Event
     function save(){
         DB::select('CALL add_event(?,?,?,?,?)',array($this->UserID, $this->Title,$this->description,$this->startTime,$this->endTime));
     }
+    function toString()
+    {
+        $Fields = "User id: ".$this->UserID." Title: ".$this->Title." Description: ".$this->description." starttime ".$this->startTime." endtime: ".$this->endTime;
+        return $Fields;
+    }
 }
