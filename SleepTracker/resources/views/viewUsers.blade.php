@@ -43,6 +43,37 @@
                     </tbody>
                 </table>
             </div>
+            <div class="card bg-dark text-white" id="editUser">
+                <div class="card-header">Update User Records</div>
+                <form>
+                    <div class="form-group">
+                        <label for="id">ID:</label>
+                        <input type="text" id="id" value="" name="id" class="form-control w-auto" required>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" value="" name="name" class="form-control w-auto" required>
+                        <label for="email">Email</label>
+                        <input type="text" id="email" value="" name="email" class="form-control w-auto" required>
+                        <label for="country">Country</label>
+                        <select id="country" value="" name="country" class="form-control" style="width: auto" required>
+                            <option value="Other">Other</option>
+                            <option value="England">England</option>
+                            <option value="Scotland">Scotland</option>
+                            <option value="Wales">Wales</option>
+                            <option value="North Ireland">North Ireland</option>
+                        </select>
+                        <label for="age">Age</label>
+                        <input type="number" id="age" value="" name="age" class="form-control" style="width: auto" required>
+                        <label for="gender">Gender</label>
+                        <select id="gender" value="" name="gender" class="form-control" style="width: auto" required>
+                            <option value="Other">Other</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select><br>
+                        <input type="submit" id="submitUpdate" value="Update" name="submitUpdate" class="mt-6 btn btn-dark">
+                    </div>
+
+                </form>
+            </div>
         </div>
     </div>
 
