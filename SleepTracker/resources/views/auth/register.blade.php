@@ -45,7 +45,6 @@
                                 <select id="country" placeholder="England" name="country" class="form-control" value="{{ old('country') }}" required autofocus>
                                     <option value="Other">Other</option>
                                     <option value="England">England</option>
-
                                     <option value="Scotland">Scotland</option>
                                     <option value="Wales">Wales</option>
                                     <option value="North Ireland">North Ireland</option>

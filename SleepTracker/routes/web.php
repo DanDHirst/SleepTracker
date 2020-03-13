@@ -22,18 +22,12 @@ Route::get('/', function () {
     }
   //return view('dashboard');
 });
-
 Route::resource('viewSleep', 'ViewSleep'); // goes to the controller ViewSleep
-
+Route::resource('viewUsers', 'viewUsers');
 Route::resource('SleepData', 'SleepData');
 Route::resource('EventData', 'EventData');
 Route::resource('dashboard', 'Dashboard');
-Route::get('Calender', function (){
-    return view('Calender');
-});
-//Route::get('addSleep', function (){
-//    return view('addSleep');
-//});
+
 Route::get('account', function () {
     return view('account');
 });

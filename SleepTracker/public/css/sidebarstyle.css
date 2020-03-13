@@ -170,6 +170,13 @@ ul.CTAs a {
     width: calc(100% - 140px);
 }
 
+#userTable {
+    max-height: 100%;
+    max-width: max-content;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
 /* ---------------------------------------------------
     HEADING STYLE
 ----------------------------------------------------- */
