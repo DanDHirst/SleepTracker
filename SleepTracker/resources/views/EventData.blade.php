@@ -10,7 +10,7 @@
     @endif
     <div class="container" id="content">
         <div class="card-deck">
-            <div class="card bg-dark text-white">
+{{--            <div class="card bg-dark text-white">
                 <div class="card-header">
                     <a style="font-size: 20px">Add Event</a>
                 </div>
@@ -44,27 +44,27 @@
                         </div>
                     </form>
                 </div>
-            </div>
-            <div class="card bg-dark text-white" id="eventTable">
+            </div>--}}
+            <div class="card bg-dark text-white" id="eventTable" style="height: calc(100vh - 100px)">
                 <div class="card-header">Recorded Events</div>
                 <table class="table-borderless text-white">
                     <thead>
                     <tr>
-                        <th scope="col">Title</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Start Time</th>
-                        <th scope="col">End Time</th>
-                        <th scope="col">Delete</th>
+                        <th scope="col" class="p-3">Title</th>
+                        <th scope="col" class="p-3">Description</th>
+                        <th scope="col" class="p-3">Start Time</th>
+                        <th scope="col" class="p-3">End Time</th>
+                        <th scope="col" class="p-3">Delete</th>
                     </tr>
                     </thead>
                     <tbody>
                     @if ($Events != null)
                         @foreach($Events as $Event)
                             <tr>
-                                <td>{{$Event->title}}</td>
-                                <td>{{$Event->description}}</td>
-                                <td>{{$Event->start_time}}</td>
-                                <td>{{$Event->end_time}}</td>
+                                <td class="p-3">{{$Event->title}}</td>
+                                <td class="p-3">{{$Event->description}}</td>
+                                <td class="p-3">{{$Event->start_time}}</td>
+                                <td class="p-3">{{$Event->end_time}}</td>
 
                                 <td>
                                     <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteEvent({{$Event->id}})"></a>
