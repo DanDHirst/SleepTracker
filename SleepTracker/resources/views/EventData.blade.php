@@ -10,42 +10,35 @@
     @endif
     <div class="container" id="content">
         <div class="card-deck">
-{{--            <div class="card bg-dark text-white">
-                <div class="card-header">
-                    <a style="font-size: 20px">Add Event</a>
-                </div>
-                <div class="card-body">
-                    <form method="post" action="EventData" class="login-form">
-                        @csrf
+            <div class="card bg-dark text-white" id="sleepTable" style="width: 50%">
+                <div class="card-header">Recorded Sleep</div>
+                <table class="table-borderless text-white">
+                    <thead>
+                    <tr>
+                        <th scope="col">Start Time</th>
+                        <th scope="col">End Time</th>
+                        <th scope="col">Notes</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @if ($Sleeps != null)
+                        @foreach($Sleeps as $Sleep)
+                            <tr>
+                                <td>{{$Sleep->Sleep_Start}}</td>
+                                <td>{{$Sleep->Sleep_End}}</td>
+                                <td>{{$Sleep->Sleep_Notes}}</td>
+                                <td>
+                                    <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteSleep({{$Sleep->Sleep_ID}})"></a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
+                    </tbody>
 
-                        <div class="form-group text-center">
-                            <p><span>Please input Event details below</span></p>
-                        </div>
-                        <hr/>
-                        <div class="form-group">
-                            <label for="Title">Title</label>
-                            <input type="text" id="title" name="title" placeholder="Event title" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="Description">Description</label>
-                            <input type="text" id="description" name="description" placeholder="Event description" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="Start-Time">Start Date:</label>
-                            <input type="datetime-local" id="startDate" name="startDate" class="form-control" required>
-
-                        </div>
-                        <div class="form-group">
-                            <label for="End-Time">End Date:</label>
-                            <input type="datetime-local" id="endDate" name="endDate" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <button style="" type="submit" name="addBtn" id="addBtn" class="mt-6 btn btn-dark">Add</button>
-                        </div>
-                    </form>
-                </div>
-            </div>--}}
-            <div class="card bg-dark text-white" id="eventTable" style="height: calc(100vh - 250px)">
+                </table>
+            </div>
+            <div class="card bg-dark text-white" id="eventTable" style="width: 49.5%">
                 <div class="card-header">Recorded Events</div>
                 <table class="table-borderless text-white">
                     <thead>
@@ -78,14 +71,99 @@
             </div>
         </div>
         <br>
-        <button type="button" id="addEvent" class="btn btn-info" style="width: 50%; height: 50px">
+        <button type="button" id="addEvent" class="btn btn-light" data-toggle="modal" data-target="#addEventModal" style="width: 50%; height: 50px">
             <i class="fas fa-plus"></i>
             <span>Add Event</span>
         </button>
-        <button type="button" id="addEvent" class="btn btn-info" style="width: 49.5%; height: 50px">
+        <button type="button" id="addEvent" class="btn btn-light" data-toggle="modal" data-target="#addSleepModal" style="width: 49.5%; height: 50px">
             <i class="fas fa-plus"></i>
             <span>Add Sleep</span>
         </button>
+
+        <!-- Sleep Modal -->
+        <div class="modal fade" id="addSleepModal" tabindex="-1" role="dialog" aria-labelledby="sleepModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="sleepModalLabel">Add Sleep</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="SleepData" class="login-form">
+                            @csrf
+
+                            <div class="form-group text-center">
+                                <p><span>Please input Sleep details below</span></p>
+                            </div>
+                            <hr/>
+                            <div class="form-group">
+                                <label for="Start-Time">Start Time:</label>
+                                <input type="datetime-local" id="startTime" name="startTime" class="form-control" required>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="End-Time">End Time:</label>
+                                <input type="datetime-local" id="endTime" name="endTime" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="Notes">Additional Notes:</label>
+                                <input type="text" id="notes" name="notes" class="form-control" >
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" name="addBtn" id="addBtn" class="mt-6 btn btn-dark pull-right">Add</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Event Modal -->
+        <div class="modal fade" id="addEventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="eventModalLabel">Add Event</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="EventData" class="login-form">
+                            @csrf
+
+                            <div class="form-group text-center">
+                                <p><span>Please input Event details below</span></p>
+                            </div>
+                            <hr/>
+                            <div class="form-group">
+                                <label for="Title">Title</label>
+                                <input type="text" id="title" name="title" placeholder="Event title" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="Description">Description</label>
+                                <input type="text" id="description" name="description" placeholder="Event description" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="Start-Time">Start Date:</label>
+                                <input type="datetime-local" id="startDate" name="startDate" class="form-control" required>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="End-Time">End Date:</label>
+                                <input type="datetime-local" id="endDate" name="endDate" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <button style="" type="submit" name="addBtn" id="addBtn" class="mt-6 btn btn-dark pull-right">Add</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <form id="deleteEvent" method="POST" action="" hidden>
         {{ csrf_field() }}
@@ -101,5 +179,12 @@
         function deleteEvent(userID) {
             document.getElementById("deleteEvent").action = "EventData/"+userID;
             document.getElementById("deleteEventBtn").click();
+        }
+    </script>
+
+    <script>
+        function deleteSleep(userID) {
+            document.getElementById("deleteSleep").action = "SleepData/"+userID;
+            document.getElementById("deleteSleepBtn").click();
         }
     </script>
