@@ -45,7 +45,7 @@
                     </form>
                 </div>
             </div>--}}
-            <div class="card bg-dark text-white" id="eventTable" style="height: calc(100vh - 100px)">
+            <div class="card bg-dark text-white" id="eventTable" style="height: calc(100vh - 250px)">
                 <div class="card-header">Recorded Events</div>
                 <table class="table-borderless text-white">
                     <thead>
@@ -77,6 +77,15 @@
                 </table>
             </div>
         </div>
+        <br>
+        <button type="button" id="addEvent" class="btn btn-info" style="width: 50%; height: 50px">
+            <i class="fas fa-plus"></i>
+            <span>Add Event</span>
+        </button>
+        <button type="button" id="addEvent" class="btn btn-info" style="width: 49.5%; height: 50px">
+            <i class="fas fa-plus"></i>
+            <span>Add Sleep</span>
+        </button>
     </div>
     <form id="deleteEvent" method="POST" action="" hidden>
         {{ csrf_field() }}
