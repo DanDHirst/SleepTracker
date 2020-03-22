@@ -20,7 +20,7 @@ class ViewSleep extends Controller
 //        foreach ($Sleeps as $Sleep){ // iterate through each sleep and echo the sleep ID
 //            echo $Sleep->Sleep_ID;
 //        }
-        $Sleeps = DB::select('call view_user_sleep(2)');
+        $Sleeps = \App\ViewSleep::all(); // call the model to get all the sleep data
         return $Sleeps;
     }
 
