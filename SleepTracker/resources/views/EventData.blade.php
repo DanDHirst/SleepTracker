@@ -60,10 +60,10 @@
                                 <td class="p-3">{{$Event->end_time}}</td>
 
                                 <td>
-                                    <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="editEvent({{$Event->id}})"></a>
+                                    <a class="fas fa-edit text-primary" aria-hidden="true" onclick="editEvent({{$Event->id}})"></a>
                                 </td>
                                 <td>
-                                    <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="editEvent({{$Event->id}})"></a>
+                                    <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteEvent({{$Event->id}})"></a>
                                 </td>
                             </tr>
                         @endforeach
