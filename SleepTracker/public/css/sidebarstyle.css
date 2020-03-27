@@ -168,7 +168,7 @@ ul.CTAs a {
 }
 
 #content.active {
-    width: calc(100% - 140px);
+    width: 100%;
 }
 
 #userTable {
@@ -201,7 +201,7 @@ ul.CTAs a {
         margin-left: -400px;
     }
     #sidebar.active {
-        left: 50px;
+        left: 10px;
         margin-left: 0;
     }
     #heading {
@@ -219,7 +219,13 @@ ul.CTAs a {
     #content {
         width: 100%;
         left: 5px;
-        margin-left: 50px;
+        margin-left: 5px;
         margin-top: 50px;
+    }
+    #sleepTable {
+        width: 100%;
+    }
+    #eventTable {
+        width: 100%;
     }
 }

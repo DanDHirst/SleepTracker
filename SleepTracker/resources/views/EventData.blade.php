@@ -10,79 +10,85 @@
     @endif
     <div class="container" id="content">
         <div class="card-deck">
-            <div class="card bg-dark text-white" id="sleepTable" style="width: 700px">
+            <div class="card bg-dark text-white" id="sleepTable" style="min-width: 400px; min-height: 500px">
                 <div class="card-header">Recorded Sleep</div>
-                <table class="table-borderless text-white">
-                    <thead>
-                    <tr>
-                        <th scope="col" class="p-2">Start Time</th>
-                        <th scope="col" class="p-2">End Time</th>
-                        <th scope="col" class="p-2">Notes</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @if ($Sleeps != null)
-                        @foreach($Sleeps as $Sleep)
-                            <tr>
-                                <td class="p-2">{{$Sleep->Sleep_Start}}</td>
-                                <td class="p-2">{{$Sleep->Sleep_End}}</td>
-                                <td class="p-2">{{$Sleep->Sleep_Notes}}</td>
-                                <td>
-                                    <a class="fas fa-edit text-primary" aria-hidden="true" data-toggle="modal" data-target="#editSleepModal"></a>
-                                </td>
-                                <td>
-                                    <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteSleep({{$Sleep->Sleep_ID}})"></a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    @endif
-                    </tbody>
-
-                </table>
+                <div class="card-body">
+                    <table class="table-borderless text-white">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="p-2">Start Time</th>
+                            <th scope="col" class="p-2">End Time</th>
+                            <th scope="col" class="p-2">Notes</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @if ($Sleeps != null)
+                            @foreach($Sleeps as $Sleep)
+                                <tr>
+                                    <td class="p-2">{{$Sleep->Sleep_Start}}</td>
+                                    <td class="p-2">{{$Sleep->Sleep_End}}</td>
+                                    <td class="p-2">{{$Sleep->Sleep_Notes}}</td>
+                                    <td>
+                                        <a class="fas fa-edit text-primary" aria-hidden="true" data-toggle="modal" data-target="#editSleepModal"></a>
+                                    </td>
+                                    <td>
+                                        <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteSleep({{$Sleep->Sleep_ID}})"></a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <button type="button" id="addEvent" class="btn btn-light" data-toggle="modal" data-target="#addSleepModal">
+                        <i class="fas fa-plus"></i>
+                        <span>Add Sleep</span>
+                    </button>
+                </div>
             </div>
-            <div class="card bg-dark text-white" id="eventTable" style="width: 700px">
+
+            <div class="card bg-dark text-white" id="eventTable" style="min-width: 400px">
                 <div class="card-header">Recorded Events</div>
-                <table class="table-borderless text-white">
-                    <thead>
-                    <tr>
-                        <th scope="col" class="p-2">Title</th>
-                        <th scope="col" class="p-2">Description</th>
-                        <th scope="col" class="p-2">Start Time</th>
-                        <th scope="col" class="p-2">End Time</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @if ($Events != null)
-                        @foreach($Events as $Event)
-                            <tr>
-                                <td class="p-2">{{$Event->title}}</td>
-                                <td class="p-2">{{$Event->description}}</td>
-                                <td class="p-2">{{$Event->start_time}}</td>
-                                <td class="p-2">{{$Event->end_time}}</td>
+                <div class="card-body">
+                    <table class="table-borderless text-white">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="p-2">Title</th>
+                            <th scope="col" class="p-2">Description</th>
+                            <th scope="col" class="p-2">Start Time</th>
+                            <th scope="col" class="p-2">End Time</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @if ($Events != null)
+                            @foreach($Events as $Event)
+                                <tr>
+                                    <td class="p-2">{{$Event->title}}</td>
+                                    <td class="p-2">{{$Event->description}}</td>
+                                    <td class="p-2">{{$Event->start_time}}</td>
+                                    <td class="p-2">{{$Event->end_time}}</td>
 
-                                <td>
-                                    <a class="fas fa-edit text-primary" aria-hidden="true" data-toggle="modal" data-target="#editEventModal"></a>
-                                </td>
-                                <td>
-                                    <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteEvent({{$Event->id}})"></a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    @endif
-                    </tbody>
-
-                </table>
+                                    <td>
+                                        <a class="fas fa-edit text-primary" aria-hidden="true" data-toggle="modal" data-target="#editEventModal"></a>
+                                    </td>
+                                    <td>
+                                        <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteEvent({{$Event->id}})"></a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <button type="button" id="addEvent" class="btn btn-light" data-toggle="modal" data-target="#addEventModal">
+                        <i class="fas fa-plus"></i>
+                        <span>Add Event</span>
+                    </button>
+                </div>
             </div>
         </div>
-        <br>
-        <button type="button" id="addEvent" class="btn btn-light" data-toggle="modal" data-target="#addSleepModal" style="width: 49.5%; height: 50px">
-            <i class="fas fa-plus"></i>
-            <span>Add Sleep</span>
-        </button>
-        <button type="button" id="addEvent" class="btn btn-light" data-toggle="modal" data-target="#addEventModal" style="width: 50%; height: 50px">
-            <i class="fas fa-plus"></i>
-            <span>Add Event</span>
-        </button>
 
         <!-- Sleep Modal -->
         <div class="modal fade" id="addSleepModal" tabindex="-1" role="dialog" aria-labelledby="sleepModalLabel" aria-hidden="true">
