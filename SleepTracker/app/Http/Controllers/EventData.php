@@ -23,9 +23,7 @@ class EventData extends Controller
             $Sleeps = DB::select('call view_user_sleep(?)',[Auth::user()->id]);
         }
 
-        if(Auth::check()) {
 
-        }
 
         return view('EventData',compact('Events','Sleeps'));
     }

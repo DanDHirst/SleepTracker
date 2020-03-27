@@ -28,7 +28,8 @@
                                 <td class="p-2">{{$Sleep->Sleep_End}}</td>
                                 <td class="p-2">{{$Sleep->Sleep_Notes}}</td>
                                 <td>
-                                    <a class="fas fa-edit text-primary" aria-hidden="true" data-toggle="modal" data-target="#editSleepModal"></a>
+                                    <a class="fas fa-edit text-primary" aria-hidden="true" data-toggle="modal" data-target="#editSleepModal"
+                                       onclick='showSleep({"SleepID":"{{$Sleep->Sleep_ID}}","start":"{{$Sleep->Sleep_Start}}","end":"{{$Sleep->Sleep_End}}","notes":"{{$Sleep->Sleep_Notes}}"})'></a>
                                 </td>
                                 <td>
                                     <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteSleep({{$Sleep->Sleep_ID}})"></a>
@@ -61,7 +62,7 @@
                                 <td class="p-2">{{$Event->end_time}}</td>
 
                                 <td>
-                                    <a class="fas fa-edit text-primary" aria-hidden="true" data-toggle="modal" data-target="#editEventModal"></a>
+                                    <a class="fas fa-edit text-primary" aria-hidden="true" data-toggle="modal" data-target="#editEventModal" onclick='showEvent({"SleepID":"{{$Event->id}}","title":"{{$Event->title}}","desc":"{{$Event->description}}","start":"{{$Event->start_time}}", "end":"{{$Event->end_time}}" })'></a>
                                 </td>
                                 <td>
                                     <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteEvent({{$Event->id}})"></a>
@@ -181,23 +182,24 @@
                     <div class="modal-body">
                         <form method="post" action="SleepData" class="login-form">
                             @csrf
-
+                            <input type="datetime-local" id="Method" name="Update" class="form-control" value="true" hidden>
                             <div class="form-group text-center">
                                 <p><span>Edit Sleep details below</span></p>
                             </div>
+                            <input type="datetime-local" id="SleepID" name="SleepID" class="form-control" required >
                             <hr/>
                             <div class="form-group">
                                 <label for="Start-Time">Start Time:</label>
-                                <input type="datetime-local" id="startTime" name="startTime" class="form-control" required>
+                                <input type="datetime-local" id="SleepStartTime" name="startTime" class="form-control" required>
 
                             </div>
                             <div class="form-group">
                                 <label for="End-Time">End Time:</label>
-                                <input type="datetime-local" id="endTime" name="endTime" class="form-control" required>
+                                <input type="datetime-local" id="SleepEndTime" name="endTime" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="Notes">Additional Notes:</label>
-                                <input type="text" id="notes" name="notes" class="form-control" >
+                                <input type="text" id="NewSleepNotes" name="notes" class="form-control" >
                             </div>
                             <div class="form-group">
                                 <button type="submit" name="addBtn" id="addBtn" class="mt-6 btn btn-dark pull-right">Save</button>
@@ -281,5 +283,18 @@
         function deleteSleep(userID) {
             document.getElementById("deleteSleep").action = "SleepData/"+userID;
             document.getElementById("deleteSleepBtn").click();
+        }
+        function showSleep(sleep){
+            document.getElementById("SleepID").value = sleep.SleepID;
+            document.getElementById("SleepStartTime").value = sleep.start;
+            document.getElementById("SleepEndTime").value = sleep.end;
+            document.getElementById("NewSleepNotes").value = sleep.notes;
+        }
+        function showEvent(event){
+            document.getElementById("SleepID").value = sleep.SleepID;
+            document.getElementById("SleepStartTime").value = sleep.start;
+            document.getElementById("SleepEndTime").value = sleep.end;
+            document.getElementById("NewSleepNotes").value = sleep.notes;
+            document.getElementById("NewSleepNotes").value = sleep.notes;
         }
     </script>

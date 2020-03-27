@@ -45,9 +45,17 @@ class SleepData extends Controller
     {
         //
 
-        $sleep = new Sleep(Auth::user()->id,$request->notes,$request->startTime,$request->endTime);
-        $sleep->save();
-        return redirect('SleepData');
+        if($request->Update){
+            DB::select('CALL update_sleep(?,?,?,?)',[$request->SleepID,$request->notes,$request->startTime,$request->endTime]);
+            return redirect('SleepData');
+        }
+        else{
+            $sleep = new Sleep(Auth::user()->id,$request->notes,$request->startTime,$request->endTime);
+            $sleep->save();
+            return redirect('SleepData');
+        }
+
+
     }
 
     /**
