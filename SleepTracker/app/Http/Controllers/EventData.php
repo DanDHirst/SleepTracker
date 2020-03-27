@@ -46,10 +46,14 @@ class EventData extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $event = new Event(Auth::user()->id,$request->title,$request->description,$request->startDate,$request->endDate);
-        $event->save();
+        if($request->Update){
 
+            DB::select('CALL update_event(?,?,?,?,?)',[$request->EventID,$request->title,$request->description,$request->startDate,$request->endDate]);
+        }
+        else {
+            $event = new Event(Auth::user()->id, $request->title, $request->description, $request->startDate, $request->endDate);
+            $event->save();
+        }
         return redirect('EventData');
     }
 

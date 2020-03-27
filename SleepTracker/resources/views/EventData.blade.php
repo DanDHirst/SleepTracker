@@ -72,7 +72,7 @@
                                     <td class="p-2">{{$Event->end_time}}</td>
 
                                     <td>
-                                        <a class="fas fa-edit text-primary" aria-hidden="true" data-toggle="modal" data-target="#editEventModal" onclick='showEvent({"SleepID":"{{$Event->id}}","title":"{{$Event->title}}","desc":"{{$Event->description}}","start":"{{$Event->start_time}}", "end":"{{$Event->end_time}}" })'></a>
+                                        <a class="fas fa-edit text-primary" aria-hidden="true" data-toggle="modal" data-target="#editEventModal" onclick='showEvent({"id":"{{$Event->id}}","title":"{{$Event->title}}","desc":"{{$Event->description}}","start":"{{$Event->start_time}}", "end":"{{$Event->end_time}}" })'></a>
                                     </td>
                                     <td>
                                         <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteEvent({{$Event->id}})"></a>
@@ -193,7 +193,7 @@
                             <div class="form-group text-center">
                                 <p><span>Edit Sleep details below</span></p>
                             </div>
-                            <input type="datetime-local" id="SleepID" name="SleepID" class="form-control" required >
+                            <input type="datetime-local" id="SleepID" name="SleepID" class="form-control" required readonly >
                             <hr/>
                             <div class="form-group">
                                 <label for="Start-Time">Start Time:</label>
@@ -230,27 +230,28 @@
                     <div class="modal-body">
                         <form method="post" action="EventData" class="login-form">
                             @csrf
-
+                            <input type="datetime-local" id="Method" name="Update" class="form-control" value="true" hidden>
                             <div class="form-group text-center">
                                 <p><span>Edit Event details below</span></p>
                             </div>
+                            <input type="datetime-local" id="EventID" name="EventID" class="form-control" required readonly >
                             <hr/>
                             <div class="form-group">
                                 <label for="Title">Title</label>
-                                <input type="text" id="title" name="title" placeholder="Event title" class="form-control" required>
+                                <input type="text" id="EventTitle" name="title" placeholder="Event title" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="Description">Description</label>
-                                <input type="text" id="description" name="description" placeholder="Event description" class="form-control">
+                                <input type="text" id="EventDescription" name="description" placeholder="Event description" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="Start-Time">Start Date:</label>
-                                <input type="datetime-local" id="startDate" name="startDate" class="form-control" required>
+                                <input type="datetime-local" id="EventStartDate" name="startDate" class="form-control" required>
 
                             </div>
                             <div class="form-group">
                                 <label for="End-Time">End Date:</label>
-                                <input type="datetime-local" id="endDate" name="endDate" class="form-control" required>
+                                <input type="datetime-local" id="EventEndDate" name="endDate" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <button style="" type="submit" name="addBtn" id="addBtn" class="mt-6 btn btn-dark pull-right">Edit</button>
@@ -298,10 +299,10 @@
             document.getElementById("NewSleepNotes").value = sleep.notes;
         }
         function showEvent(event){
-            document.getElementById("SleepID").value = sleep.SleepID;
-            document.getElementById("SleepStartTime").value = sleep.start;
-            document.getElementById("SleepEndTime").value = sleep.end;
-            document.getElementById("NewSleepNotes").value = sleep.notes;
-            document.getElementById("NewSleepNotes").value = sleep.notes;
+            document.getElementById("EventID").value = event.id;
+            document.getElementById("EventTitle").value = event.title;
+            document.getElementById("EventDescription").value = event.desc;
+            document.getElementById("EventStartDate").value = event.start;
+            document.getElementById("EventEndDate").value = event.end;
         }
     </script>
