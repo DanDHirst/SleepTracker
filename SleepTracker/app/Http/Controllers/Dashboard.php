@@ -17,18 +17,27 @@ class dashboard extends Controller
     {
         //
         if(Auth::check()) {
-            $lastThree = DB::select('CALL group_previous(?,?)',[Auth::user()->id,3]);
-            $lastWeek = DB::select('CALL group_previous(?,?)',[Auth::user()->id,7]);
-            $lastWeekAmount = 0;
-            foreach ($lastWeek as $week){
+            $lastThree = DB::select('CALL group_previous(?,?)',[Auth::user()->id,3]); // get the 3 most recent sleeps
+            $lastWeek = DB::select('CALL group_previous(?,?)',[Auth::user()->id,7]); // get the 7 most recent sleeps
+            $lastWeekAmount = 0; // amount of time slept
+            foreach ($lastWeek as $week){ // loop through each day to find the time slept
                 $lastWeekAmount += $week->Difference;
             }
             $lastWeekTimeMissed= 0;
             if ($lastWeekAmount < 56){
                 $lastWeekTimeMissed = 56 - $lastWeekAmount;
             }
+            $lastThreeDaysAmount = 0; // amount of time slept
+            foreach ($lastThree as $week){ // loop through each day to find the time slept
+                $lastThreeDaysAmount += $week->Difference;
+            }
+            $lastThreeTimeMissed= 0;
+            if ($lastWeekAmount < 24){
+                $lastThreeTimeMissed = 24 - $lastThreeDaysAmount;
+            }
 
-            return view('dashboard',compact('lastWeekAmount','lastWeekTimeMissed'));
+
+            return view('dashboard',compact('lastWeekAmount','lastWeekTimeMissed','lastThreeTimeMissed','lastThreeDaysAmount'));
         }
         else{
             return redirect('home');
