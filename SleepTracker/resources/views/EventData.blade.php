@@ -15,19 +15,21 @@
                 <table class="table-borderless text-white">
                     <thead>
                     <tr>
-                        <th scope="col">Start Time</th>
-                        <th scope="col">End Time</th>
-                        <th scope="col">Notes</th>
-                        <th scope="col">Delete</th>
+                        <th scope="col" class="p-2">Start Time</th>
+                        <th scope="col" class="p-2">End Time</th>
+                        <th scope="col" class="p-2">Notes</th>
                     </tr>
                     </thead>
                     <tbody>
                     @if ($Sleeps != null)
                         @foreach($Sleeps as $Sleep)
                             <tr>
-                                <td>{{$Sleep->Sleep_Start}}</td>
-                                <td>{{$Sleep->Sleep_End}}</td>
-                                <td>{{$Sleep->Sleep_Notes}}</td>
+                                <td class="p-2">{{$Sleep->Sleep_Start}}</td>
+                                <td class="p-2">{{$Sleep->Sleep_End}}</td>
+                                <td class="p-2">{{$Sleep->Sleep_Notes}}</td>
+                                <td>
+                                    <a class="fas fa-edit text-primary" aria-hidden="true" data-toggle="modal" data-target="#editSleepModal"></a>
+                                </td>
                                 <td>
                                     <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteSleep({{$Sleep->Sleep_ID}})"></a>
                                 </td>
@@ -43,24 +45,23 @@
                 <table class="table-borderless text-white">
                     <thead>
                     <tr>
-                        <th scope="col" class="p-3">Title</th>
-                        <th scope="col" class="p-3">Description</th>
-                        <th scope="col" class="p-3">Start Time</th>
-                        <th scope="col" class="p-3">End Time</th>
-                        <th scope="col" class="p-3">Delete</th>
+                        <th scope="col" class="p-2">Title</th>
+                        <th scope="col" class="p-2">Description</th>
+                        <th scope="col" class="p-2">Start Time</th>
+                        <th scope="col" class="p-2">End Time</th>
                     </tr>
                     </thead>
                     <tbody>
                     @if ($Events != null)
                         @foreach($Events as $Event)
                             <tr>
-                                <td class="p-3">{{$Event->title}}</td>
-                                <td class="p-3">{{$Event->description}}</td>
-                                <td class="p-3">{{$Event->start_time}}</td>
-                                <td class="p-3">{{$Event->end_time}}</td>
+                                <td class="p-2">{{$Event->title}}</td>
+                                <td class="p-2">{{$Event->description}}</td>
+                                <td class="p-2">{{$Event->start_time}}</td>
+                                <td class="p-2">{{$Event->end_time}}</td>
 
                                 <td>
-                                    <a class="fas fa-edit text-primary" aria-hidden="true" onclick="editEvent({{$Event->id}})"></a>
+                                    <a class="fas fa-edit text-primary" aria-hidden="true" data-toggle="modal" data-target="#editEventModal"></a>
                                 </td>
                                 <td>
                                     <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteEvent({{$Event->id}})"></a>
@@ -160,6 +161,90 @@
                             </div>
                             <div class="form-group">
                                 <button style="" type="submit" name="addBtn" id="addBtn" class="mt-6 btn btn-dark pull-right">Add</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Sleep Modal -->
+        <div class="modal fade" id="editSleepModal" tabindex="-1" role="dialog" aria-labelledby="sleepModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="sleepModalLabel">Edit Sleep</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="SleepData" class="login-form">
+                            @csrf
+
+                            <div class="form-group text-center">
+                                <p><span>Edit Sleep details below</span></p>
+                            </div>
+                            <hr/>
+                            <div class="form-group">
+                                <label for="Start-Time">Start Time:</label>
+                                <input type="datetime-local" id="startTime" name="startTime" class="form-control" required>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="End-Time">End Time:</label>
+                                <input type="datetime-local" id="endTime" name="endTime" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="Notes">Additional Notes:</label>
+                                <input type="text" id="notes" name="notes" class="form-control" >
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" name="addBtn" id="addBtn" class="mt-6 btn btn-dark pull-right">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Event Modal -->
+        <div class="modal fade" id="editEventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="eventModalLabel">Edit Event</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="EventData" class="login-form">
+                            @csrf
+
+                            <div class="form-group text-center">
+                                <p><span>Edit Event details below</span></p>
+                            </div>
+                            <hr/>
+                            <div class="form-group">
+                                <label for="Title">Title</label>
+                                <input type="text" id="title" name="title" placeholder="Event title" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="Description">Description</label>
+                                <input type="text" id="description" name="description" placeholder="Event description" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="Start-Time">Start Date:</label>
+                                <input type="datetime-local" id="startDate" name="startDate" class="form-control" required>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="End-Time">End Date:</label>
+                                <input type="datetime-local" id="endDate" name="endDate" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <button style="" type="submit" name="addBtn" id="addBtn" class="mt-6 btn btn-dark pull-right">Edit</button>
                             </div>
                         </form>
                     </div>
