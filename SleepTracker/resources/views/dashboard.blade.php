@@ -28,6 +28,13 @@
         </div>
         <div class="card mr-4 mb-4 bg-dark text-white" style="width: 300px; height: 320px; min-width: 300px; min-height: 320px">
             <div class="card-body">
+                <h5 class="card-title">Upcoming Event</h5>
+                <p class="card-text">Event Data Here</p>
+                <a href="#" class="btn btn-primary">Go to events</a>
+            </div>
+        </div>
+        <div class="card mr-4 mb-4 bg-dark text-white" style="width: 300px; height: 320px; min-width: 300px; min-height: 320px">
+            <div class="card-body">
                 <h5 class="card-title">Special title treatment</h5>
                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>

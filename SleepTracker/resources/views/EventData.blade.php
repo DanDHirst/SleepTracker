@@ -10,7 +10,7 @@
     @endif
     <div class="container" id="content">
         <div class="card-deck">
-            <div class="card bg-dark text-white" id="sleepTable" style="width: 50%">
+            <div class="card bg-dark text-white" id="sleepTable" style="width: 700px">
                 <div class="card-header">Recorded Sleep</div>
                 <table class="table-borderless text-white">
                     <thead>
@@ -38,7 +38,7 @@
 
                 </table>
             </div>
-            <div class="card bg-dark text-white" id="eventTable" style="width: 49.5%">
+            <div class="card bg-dark text-white" id="eventTable" style="width: 700px">
                 <div class="card-header">Recorded Events</div>
                 <table class="table-borderless text-white">
                     <thead>
@@ -60,7 +60,10 @@
                                 <td class="p-3">{{$Event->end_time}}</td>
 
                                 <td>
-                                    <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteEvent({{$Event->id}})"></a>
+                                    <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="editEvent({{$Event->id}})"></a>
+                                </td>
+                                <td>
+                                    <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="editEvent({{$Event->id}})"></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -71,13 +74,13 @@
             </div>
         </div>
         <br>
-        <button type="button" id="addEvent" class="btn btn-light" data-toggle="modal" data-target="#addEventModal" style="width: 50%; height: 50px">
-            <i class="fas fa-plus"></i>
-            <span>Add Event</span>
-        </button>
         <button type="button" id="addEvent" class="btn btn-light" data-toggle="modal" data-target="#addSleepModal" style="width: 49.5%; height: 50px">
             <i class="fas fa-plus"></i>
             <span>Add Sleep</span>
+        </button>
+        <button type="button" id="addEvent" class="btn btn-light" data-toggle="modal" data-target="#addEventModal" style="width: 50%; height: 50px">
+            <i class="fas fa-plus"></i>
+            <span>Add Event</span>
         </button>
 
         <!-- Sleep Modal -->
