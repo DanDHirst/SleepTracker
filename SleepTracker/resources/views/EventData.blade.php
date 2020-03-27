@@ -173,6 +173,14 @@
             <input id="deleteEventBtn" type="submit" class="btn btn-danger delete-user" value="Delete user" hidden>
         </div>
     </form>
+    <form id="deleteSleep" method="POST" action="" hidden>
+        {{ csrf_field() }}
+        {{ method_field('DELETE') }}
+
+        <div class="form-group">
+            <input id="deleteSleepBtn" type="submit" class="btn btn-danger delete-user" value="Delete user" hidden>
+        </div>
+    </form>
 @section('footer')
 
     <script>
@@ -180,9 +188,8 @@
             document.getElementById("deleteEvent").action = "EventData/"+userID;
             document.getElementById("deleteEventBtn").click();
         }
-    </script>
 
-    <script>
+
         function deleteSleep(userID) {
             document.getElementById("deleteSleep").action = "SleepData/"+userID;
             document.getElementById("deleteSleepBtn").click();
