@@ -16,12 +16,18 @@ class EventData extends Controller
     public function index()
     {
         //
+        $Sleeps = null;
         $Events = null;
         if(Auth::check()){
             $Events = DB::select("CALL view_all_events(?)", [Auth::user()->id]);
+            $Sleeps = DB::select('call view_user_sleep(?)',[Auth::user()->id]);
         }
 
-        return view('EventData',compact('Events'));
+        if(Auth::check()) {
+
+        }
+
+        return view('EventData',compact('Events','Sleeps'));
     }
 
     /**
@@ -45,6 +51,7 @@ class EventData extends Controller
         //
         $event = new Event(Auth::user()->id,$request->title,$request->description,$request->startDate,$request->endDate);
         $event->save();
+
         return redirect('EventData');
     }
 
