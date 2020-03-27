@@ -19,7 +19,7 @@
         <div class="card mr-4 mb-4 bg-dark text-white" style="width: 300px; height: 320px; min-width: 300px; min-height: 320px">
             <h4 class="card-title" style="padding: 10px">Sleep Target: Past 3 Days</h4>
             <canvas id="3dayChart"></canvas>
-            <h4 class="card-footer" style="font-size: 14px">70%. Nearly There!</h4>
+            <h4 class="card-footer" style="font-size: 14px">@if($lastThreeTimeMissed !=0 && $lastThreeDaysAmount != 0 ){{ number_format((($lastThreeTimeMissed/ $lastThreeDaysAmount) *100),2) }}%. @else 100% @endif</h4></h4>
         </div>
         <div class="card mr-4 mb-4 bg-dark text-white" style="width: 300px; height: 320px; min-width: 300px; min-height: 320px">
             <h4 class="card-title" style="padding: 10px">Sleep Target: Past 7 Days</h4>
@@ -45,7 +45,7 @@
                 {
                     label: "Population (millions)",
                     backgroundColor: ["#ffe419", "#5e5e5e"],
-                    data: [70, 30]
+                    data: [{{$lastThreeDaysAmount}}, {{$lastThreeTimeMissed}}]
                 }
             ]
         },
