@@ -43,6 +43,14 @@
                                     <input type="text" id="gender" value="{{Auth::user()->gender}}" minlength="1" name="gender" class="form-control" required>
                                 </div>
                             </form>
+                            <form id="deleteUser" method="POST" action="/viewUsers/">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+
+                                <div class="form-group">
+                                    <input id="deleteUserBtn" type="submit" class="btn btn-danger delete-user" value="Delete user">
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
