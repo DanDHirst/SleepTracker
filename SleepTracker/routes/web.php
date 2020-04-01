@@ -27,6 +27,7 @@ Route::resource('viewUsers', 'viewUsers');
 Route::resource('SleepData', 'SleepData');
 Route::resource('EventData', 'EventData');
 Route::resource('dashboard', 'Dashboard');
+Route::resource('accTerminate', 'AccTerminate');
 
 Route::get('account', function () {
     return view('account');
