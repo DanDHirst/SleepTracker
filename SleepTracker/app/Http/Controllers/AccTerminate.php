@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use DB;
 
 class AccTerminate extends Controller
 {
@@ -79,9 +81,11 @@ class AccTerminate extends Controller
      */
     public function destroy($id)
     {
-        Auth::user()->id;
+//        Auth::user()->id;
+
         DB::select('CALL drop_user_sleeps(?)',[$id]);
         DB::select('CALL drop_user(?)',[$id]);
+        Auth::logout();
         return redirect('dashboard');
     }
 }
