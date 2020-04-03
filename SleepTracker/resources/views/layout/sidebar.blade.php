@@ -46,6 +46,9 @@
                     <a href="home">Account</a>
                 </li>
                 <li>
+                    <a href="sleepInfo">Sleep Info</a>
+                </li>
+                <li>
                     @if(Auth::check())<a id="logoutBtn" onclick="document.getElementById('logout-form').submit()"
                     onmouseover="this.style.color='red'"
                     onmouseout="this.style.color='#ffffff';">Logout</a>

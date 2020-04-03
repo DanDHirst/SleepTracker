@@ -32,6 +32,9 @@ Route::resource('accTerminate', 'AccTerminate');
 Route::get('account', function () {
     return view('account');
 });
+Route::get('sleepInfo', function () {
+    return view('sleepInfo');
+});
 Route::get('login', function () {
     return view('login');
 });
