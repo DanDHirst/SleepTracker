@@ -16,3 +16,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+/*Route::get("SleepData", "ViewSleep@index");*/
+Route::Post("ViewSleepData", "ViewSleep@store");
+Route::Post("AddSleepData", "AddSleep@store");

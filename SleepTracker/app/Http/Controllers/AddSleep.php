@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use Illuminate\Support\Facades\Hash;
 
-class ViewSleep extends Controller
+class AddSleep extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,14 +14,7 @@ class ViewSleep extends Controller
      */
     public function index()
     {
-        //first method that will be called when calling the this controller
-
-//        $Sleeps = \App\ViewSleep::all(); // pulls data from model View sleep and stores in an object
-//        foreach ($Sleeps as $Sleep){ // iterate through each sleep and echo the sleep ID
-//            echo $Sleep->Sleep_ID;
-//        }
-        $Sleeps = \App\ViewSleep::all(); // call the model to get all the sleep data
-        return $Sleeps;
+        //
     }
 
     /**
@@ -44,12 +36,14 @@ class ViewSleep extends Controller
     public function store(Request $request)
     {
         //
-        if ($request->ApiKey != null){
-            return DB::Select("CALL view_sleep_api(?)",[$request->ApiKey]);
-        }
-        return "Field ApiKey is not set to a value";
+        $ApiKey = $request->ApiKey;
+        $SleepStart = $request->SleepStart;
+        $SleepEnd = $request->SleepEnd;
+        $SleepNotes = $request->SleepNotes;
 
-
+        $sleep = new Sleep($ApiKey,$SleepNotes,$SleepStart,$SleepEnd);
+        $sleep->save();
+         return "added sleep from ".$SleepStart. " to " . $SleepEnd . " with the notes of ". $SleepNotes;
     }
 
     /**
