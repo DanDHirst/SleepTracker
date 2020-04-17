@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
 use Auth;
+use DB;
 
-class SleepData extends Controller
+class AccTerminate extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +16,6 @@ class SleepData extends Controller
     public function index()
     {
         //
-        $Sleeps = null;
-        if(Auth::check()) {
-            $SleepID = Auth::user()->id;
-        }
-        $Sleeps = DB::select('call view_user_sleep(?)',[$SleepID]);
-        return view('SleepData',compact('Sleeps'));
     }
 
     /**
@@ -32,7 +26,6 @@ class SleepData extends Controller
     public function create()
     {
         //
-        return "Create";
     }
 
     /**
@@ -44,18 +37,6 @@ class SleepData extends Controller
     public function store(Request $request)
     {
         //
-
-        if($request->Update){
-            DB::select('CALL update_sleep(?,?,?,?)',[$request->SleepID,$request->notes,$request->startTime,$request->endTime]);
-            return redirect('SleepData');
-        }
-        else{
-            $sleep = new Sleep(Auth::user()->id,$request->notes,$request->startTime,$request->endTime);
-            $sleep->save();
-            return redirect('SleepData');
-        }
-
-
     }
 
     /**
@@ -67,7 +48,6 @@ class SleepData extends Controller
     public function show($id)
     {
         //
-        return "show";
     }
 
     /**
@@ -101,9 +81,11 @@ class SleepData extends Controller
      */
     public function destroy($id)
     {
-        //
-        DB::select("CALL drop_sleeps(?)", [$id]);
-        return redirect('SleepData');
+//        Auth::user()->id;
 
+        DB::select('CALL drop_user_sleeps(?)',[$id]);
+        DB::select('CALL drop_user(?)',[$id]);
+        Auth::logout();
+        return redirect('dashboard');
     }
 }

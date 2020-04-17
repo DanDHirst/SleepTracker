@@ -21,18 +21,20 @@
                     </thead>
                     <tbody>
                     @if ($Users != null)
-                        @foreach($Users as $Users)
+                        @foreach($Users as $User)
                             <tr>
-                                <td>{{$Users->id}}</td>
-                                <td>{{$Users->name}}</td>
-                                <td>{{$Users->email}}</td>
-                                <td>{{$Users->country}}</td>
-                                <td>{{$Users->age}}</td>
-                                <td>{{$Users->gender}}</td>
+                                <td>{{$User->id}}</td>
+                                <td>{{$User->name}}</td>
+                                <td>{{$User->email}}</td>
+                                <td>{{$User->country}}</td>
+                                <td>{{$User->age}}</td>
+                                <td>{{$User->gender}}</td>
                                 <td>
-                                    <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteUser({{$Users->id}})"></a>
-                                    <button class="btn btn-info" onclick="showUser({{$Users}})">Edit</button>
+
+                                    <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteUser({{$User->id}})"></a>
+                                    <button class="btn btn-info" onclick="showUser({{$User}})">Edit</button>
                                 </td>
+
                             </tr>
                         @endforeach
                     @endif
