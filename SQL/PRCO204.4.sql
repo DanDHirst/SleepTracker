@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: proj-mysql.uopnet.plymouth.ac.uk
--- Generation Time: Mar 27, 2020 at 03:53 PM
+-- Generation Time: Apr 22, 2020 at 04:32 PM
 -- Server version: 8.0.16
 -- PHP Version: 7.2.19
 
@@ -35,6 +35,10 @@ INSERT INTO events (user_id, title, description, start_time, end_time)
 VALUES (add_user_id, add_title, add_description, add_start, add_end)$$
 
 CREATE DEFINER=`PRCO204_C`@`%` PROCEDURE `add_sleep` (IN `add_user_id` INT, IN `add_notes` VARCHAR(255), IN `add_start` DATETIME, IN `add_end` DATETIME)  NO SQL
+INSERT INTO user_sleep (User_ID, Sleep_Start, Sleep_End, Sleep_Notes)
+VALUES (add_user_id, add_start, add_end, add_notes)$$
+
+CREATE DEFINER=`PRCO204_C`@`%` PROCEDURE `add_sleep_api` (IN `add_user_id` INT, IN `add_notes` VARCHAR(255), IN `add_start` DATETIME, IN `add_finish` DATETIME)  NO SQL
 INSERT INTO user_sleep (User_ID, Sleep_Start, Sleep_End, Sleep_Notes)
 VALUES (add_user_id, add_start, add_end, add_notes)$$
 
@@ -97,7 +101,7 @@ CREATE DEFINER=`PRCO204_C`@`%` PROCEDURE `update_event` (IN `edit_id` INT(10), I
 UPDATE events
 SET
 title = edit_title,
-description = edit_description,
+description = edit_desc,
 start_time = edit_start,
 end_time = edit_end
 WHERE id = edit_id$$
@@ -124,6 +128,11 @@ CREATE DEFINER=`PRCO204_C`@`%` PROCEDURE `view_all_events` (IN `search_id` INT(1
 SELECT * FROM events
 WHERE user_id = search_id
 ORDER BY start_time DESC$$
+
+CREATE DEFINER=`PRCO204_C`@`%` PROCEDURE `view_sleep_api` (IN `search_id` INT)  NO SQL
+SELECT * FROM user_sleep
+WHERE user_id = search_id
+ORDER BY Sleep_Start DESC$$
 
 CREATE DEFINER=`PRCO204_C`@`%` PROCEDURE `view_sleep_diffs` ()  NO SQL
 SELECT Sleep_ID, 
@@ -190,11 +199,11 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`id`, `user_id`, `title`, `description`, `start_time`, `end_time`) VALUES
-(2, 1, 'birthday', 'bday', '2020-03-11 00:00:00', '2020-03-12 00:00:00'),
+(2, 1, 'birthday', 'bdays', '2020-03-11 00:00:00', '2020-03-12 00:00:00'),
 (5, 1, 'wednesday ma dude', 'nice', '2020-03-11 10:00:00', '2020-03-11 20:00:00'),
-(6, 6, 'Test event.', 'This event is merely a test.', '2020-05-15 13:00:00', '2020-05-15 17:00:00'),
 (8, 9, 'dasdassdsa', 'sadasds', '2020-03-20 10:30:00', '2020-03-22 20:20:00'),
-(9, 1, 'Test', 'test', '2020-03-27 10:00:00', '2020-03-28 22:02:00');
+(9, 1, 'Test', 'test', '2020-03-27 10:00:00', '2020-03-28 22:02:00'),
+(11, 11, 'My Birthday', 'Birthday time.', '2020-05-25 12:00:00', '2020-05-25 17:00:00');
 
 -- --------------------------------------------------------
 
@@ -261,14 +270,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `country`, `age`, `gender`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Dan', 'danhirst123@gmail.com', NULL, '$2y$10$YOWSNLiIqL/94XhyK/UvruUQ1vnBaJF/TRio.n2uUcqVl5YPxyPMC', 'UK', 20, 'Male', 'RWCzqP6UdDaymep8OWuegNZXxEMKyV6CDvT1Kpeqncc2vDv1PW64qO6vV87x', '2020-03-02 10:22:36', '2020-03-02 10:22:36'),
-(3, 'Daniel', 'dan@danhirst.co.uk', NULL, '$2y$10$VSbDCjyZZ6vzShu03VgPGe1U5mhWynZdgm1MLAbmMfFwoe7IdkmDK', 'Other', 21, 'Male', NULL, '2020-03-03 20:27:17', '2020-03-03 20:27:17'),
-(4, 'Dan', 'daniel@danhirst.co.uk', NULL, '$2y$10$T6Qf1gjXKsWBqxw8KTF25.FQWp3VOh4TgZe6gp2WfAVlWVA310nZS', 'England', 21, 'Other', NULL, '2020-03-03 20:32:10', '2020-03-03 20:32:10'),
-(5, 'Tony', 'tony@gmail.com', NULL, '$2y$10$fghI8ImQkKaXJo5tylZVmuxMXWx.oZU15IDJCVZODa7Udx4vbWXpu', 'Other', 509, 'Other', NULL, '2020-03-05 12:22:56', '2020-03-05 12:22:56'),
-(6, 'user-dan', 'user@test.com', NULL, '$2y$10$INukjlsZXh.8vLLdy9EJLu77CNO4169Rb6ehW2j1fVAArllsGP.zi', 'Other', 22, 'Other', '6HdVwf5CmlhOtrWgwyrhaL4McV9IkKlTZNbVQZbm98RBrA0q7SWypIabdAts', '2020-03-07 13:41:20', '2020-03-07 13:41:20'),
-(8, 'UserTest', 'Test@Plymouth.ac.uk', NULL, '$2y$10$w27kupaHZbG6YLuO23nvhuRWfewzEM7CigyJk71iEk1Fq7.JWqSBq', 'Other', 21, 'Other', NULL, '2020-03-13 12:52:44', '2020-03-13 12:52:44'),
+(1, 'Dan', 'danhirst123@gmail.com', NULL, '$2y$10$YOWSNLiIqL/94XhyK/UvruUQ1vnBaJF/TRio.n2uUcqVl5YPxyPMC', 'UK', 20, 'Male', '0dvaVRcUjdhljkF3cvZFWXztWGevBPAg7xjlb1GzdMXnxVmVrIDdFANFwewI', '2020-03-02 10:22:36', '2020-03-02 10:22:36'),
+(5, 'Tony', 'tony@gmail.com', NULL, '$2y$10$fghI8ImQkKaXJo5tylZVmuxMXWx.oZU15IDJCVZODa7Udx4vbWXpu', 'England', 507, 'Other', NULL, '2020-03-05 12:22:56', '2020-03-05 12:22:56'),
 (9, 'daniels', 'dan@test.co.uk', NULL, '$2y$10$c3zGeb.ibz.MJnhJevkp0OsXiFhhwPOBRTJlKhui6NzNYGa2yvi7G', 'England', 20, 'Male', '9xupx6AV6dVLiM3M1kfG2DBTH1M1AKHfM9fAI4jjKyX28hkcVYY0H4EkMLxt', '2020-03-18 15:12:23', '2020-03-18 15:12:23'),
-(10, 'test', 'test@example.com', NULL, '$2y$10$bPm/thE6.bsjA7Y8kHLe/uGl7v7zldLlv9Uh5ESmFKJx3KQhoZZJy', 'England', 23, 'Other', 'g5RpcsB6E6htzKFO1ASpUJ9DIpTyc6e241ER43DWxEVsqxaiAiV2MF1VAh1C', '2020-03-20 12:20:38', '2020-03-20 12:20:38');
+(11, 'Daniel', 'daniel@test.com', NULL, '$2y$10$Hy/KcqoVRKV20.T4I8tyn.LG2jEfu9T6NtF8RbtWqwurw3A718e6a', 'Other', 20, 'Other', 'nDCHFzvDJW7Huk9TGuPpYbydIyWLtTxCPy0WoH1NUZor7WSxLHvCxSpaXuHb', '2020-04-01 07:20:44', '2020-04-01 07:20:44'),
+(12, 'Test1', 'test1@test.com', NULL, '$2y$10$wMH.LHsqriqDqjwTe571kOg2xuaRKXea/AVn5YPdfIyfGVaBp941O', 'Other', 20, 'Other', NULL, '2020-04-10 12:45:39', '2020-04-10 12:45:39');
 
 -- --------------------------------------------------------
 
@@ -289,19 +295,26 @@ CREATE TABLE `user_sleep` (
 --
 
 INSERT INTO `user_sleep` (`Sleep_ID`, `User_ID`, `Sleep_Start`, `Sleep_End`, `Sleep_Notes`) VALUES
-(3, 1, '2020-03-01 23:00:00', '2020-03-02 10:00:00', 'Last night'),
-(15, 6, '2020-04-03 22:30:00', '2020-04-04 07:30:00', 'Nothing interesting'),
+(3, 1, '2020-03-01 23:00:00', '2020-03-02 10:00:00', 'Last night was bad'),
 (37, 1, '2020-03-13 23:00:00', '2020-03-14 08:00:00', 'sleep'),
 (39, 1, '2020-03-15 10:55:00', '2020-03-16 20:00:00', ''),
 (41, 1, '2020-03-18 20:00:00', '2020-03-19 07:00:00', ''),
 (42, 1, '2020-03-13 21:00:00', '2020-03-14 05:00:00', ''),
-(43, 6, '2020-03-12 23:30:00', '2020-03-13 07:30:00', 'Test sleep.'),
-(44, 6, '2020-03-12 22:30:00', '2020-03-13 07:30:00', 'Fair sleep.'),
 (45, 9, '2020-03-13 22:30:00', '2020-03-14 10:00:00', ''),
 (46, 9, '2020-03-14 22:00:00', '2020-03-15 10:00:00', 'AAAAAAAAAAAAAAAA'),
 (47, 9, '2020-03-14 23:59:00', '2020-03-15 06:00:00', 'No sleep'),
 (48, 1, '2020-03-27 22:00:00', '2020-03-28 08:00:00', ''),
-(51, 10, '2020-03-26 00:00:00', '2020-03-27 08:30:00', 'Slept well.');
+(52, 1, '2020-03-01 23:00:00', '2020-03-02 10:00:00', 'Last night'),
+(54, 1, '2020-03-18 20:00:00', '2020-03-02 10:00:00', ''),
+(57, 11, '2020-02-20 20:00:00', '2020-02-21 06:00:00', 'Calm'),
+(58, 11, '2020-04-06 22:00:00', '2020-04-07 10:00:00', 'Cool'),
+(59, 11, '2020-04-02 22:00:00', '2020-04-03 10:00:00', 'It was nice.'),
+(60, 11, '2020-04-09 22:30:00', '2020-04-10 11:00:00', 'NICE SLEEP'),
+(61, 11, '2020-04-08 22:00:00', '2020-04-09 10:00:00', 'Was good'),
+(62, 11, '2020-04-07 22:00:00', '2020-04-08 06:00:00', 'Early start'),
+(63, 11, '2020-04-05 22:00:00', '2020-04-06 10:00:00', 'sadasdas'),
+(64, 12, '2020-01-01 22:00:00', '2020-01-02 06:00:00', 'Cool'),
+(65, 1, '2020-03-01 23:00:00', '2020-03-02 10:00:00', 'Woke up twice last night');
 
 -- --------------------------------------------------------
 
@@ -310,12 +323,12 @@ INSERT INTO `user_sleep` (`Sleep_ID`, `User_ID`, `Sleep_Start`, `Sleep_End`, `Sl
 -- (See below for the actual view)
 --
 CREATE TABLE `view_events` (
-`description` varchar(255)
-,`end_time` datetime
-,`id` int(10)
-,`start_time` datetime
-,`title` varchar(255)
+`id` int(10)
 ,`user_id` int(10) unsigned
+,`title` varchar(255)
+,`description` varchar(255)
+,`start_time` datetime
+,`end_time` datetime
 );
 
 -- --------------------------------------------------------
@@ -325,11 +338,11 @@ CREATE TABLE `view_events` (
 -- (See below for the actual view)
 --
 CREATE TABLE `view_sleep` (
-`Sleep_End` datetime
-,`Sleep_ID` int(11)
-,`Sleep_Notes` varchar(255)
-,`Sleep_Start` datetime
+`Sleep_ID` int(11)
 ,`User_ID` int(10) unsigned
+,`Sleep_Start` datetime
+,`Sleep_End` datetime
+,`Sleep_Notes` varchar(255)
 );
 
 -- --------------------------------------------------------
@@ -339,8 +352,8 @@ CREATE TABLE `view_sleep` (
 -- (See below for the actual view)
 --
 CREATE TABLE `view_sleep_api` (
-`Sleep_End` datetime
-,`Sleep_Start` datetime
+`Sleep_Start` datetime
+,`Sleep_End` datetime
 );
 
 -- --------------------------------------------------------
@@ -350,13 +363,13 @@ CREATE TABLE `view_sleep_api` (
 -- (See below for the actual view)
 --
 CREATE TABLE `view_users` (
-`age` int(11)
-,`country` varchar(255)
-,`email` varchar(255)
-,`gender` varchar(255)
-,`id` int(10) unsigned
+`id` int(10) unsigned
 ,`name` varchar(255)
+,`email` varchar(255)
 ,`password` varchar(255)
+,`country` varchar(255)
+,`age` int(11)
+,`gender` varchar(255)
 );
 
 -- --------------------------------------------------------
@@ -452,7 +465,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -464,13 +477,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `user_sleep`
 --
 ALTER TABLE `user_sleep`
-  MODIFY `Sleep_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `Sleep_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- Constraints for dumped tables
