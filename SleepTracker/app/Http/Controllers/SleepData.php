@@ -43,7 +43,7 @@ class SleepData extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //return $request;
 
         if($request->Update){
             DB::select('CALL update_sleep(?,?,?,?)',[$request->SleepID,$request->notes,$request->startTime,$request->endTime]);

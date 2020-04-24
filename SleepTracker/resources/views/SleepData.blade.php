@@ -24,12 +24,22 @@
                         <hr/>
                         <div class="form-group">
                             <label for="Start-Time">Start Time:</label>
-                            <input type="datetime-local" id="startTime" name="startTime" class="form-control" required>
+                            <input type="time" id="Start-Time" value = '' class="form-control" oninput="combineDateTime('Start-Time','Start-Date', 'startTime')"  required>
+                            <label for="Start-date">Start date:</label>
+                            <input type="date" id="Start-Date"  class="form-control" value="" oninput="combineDateTime('Start-Time','Start-Date', 'startTime')" required>
+                            <label for="Start-Time">Combined:</label>
+                            <input type="datetime-local" id="startTime" name="startTime" class="form-control" required  readonly>
 
                         </div>
                         <div class="form-group">
-                            <label for="End-Time">End Time:</label>
-                            <input type="datetime-local" id="endTime" name="endTime" class="form-control" required>
+
+                            <label for="Start-Time">End Time:</label>
+                            <input type="time" id="End-Time" value = '' class="form-control" oninput="combineDateTime('End-Time','End-Date', 'endTime')"  required>
+                            <label for="Start-date">End Date:</label>
+                            <input type="date" id="End-Date"  class="form-control" value="" oninput="combineDateTime('End-Time','End-Date', 'endTime')" required>
+                            <label for="Start-Time">Combined:</label>
+                            <input type="datetime-local" id="endTime" name="endTime" class="form-control" required readonly>
+
                         </div>
                         <div class="form-group">
                             <label for="Notes">Additional Notes:</label>
@@ -86,6 +96,10 @@
         function deleteSleep(userID) {
             document.getElementById("deleteSleep").action = "SleepData/"+userID;
             document.getElementById("deleteSleepBtn").click();
+        }
+        function combineDateTime(time, date, dateTime){
+            let NewTime = document.getElementById(date).value +"T"+ document.getElementById(time).value;
+            document.getElementById(dateTime).value = NewTime;
         }
         </script>
 
