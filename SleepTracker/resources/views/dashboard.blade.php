@@ -8,14 +8,7 @@
 
 <div class="container" id="content">
     <div class="card-deck">
-        <div class="card mr-4 mb-4 bg-dark text-white" style="width: 300px; height: 320px; min-width: 300px; min-height: 320px">
-            <h4 class="card-header">Example Dashboard</h4>
-            <div class="card-body mt-3">
-                <a href="#" class="btn btn-secondary mb-4 h-auto" style="width:100%; padding-top: 10px">Add a Diary Entry</a><br>
-                <a href="#" class="btn btn-secondary mb-4 h-auto" style="width:100%; padding-top: 10px">Account</a>
-                <a href="#" class="btn btn-secondary h-auto" style="width:100%; padding-top: 10px">Logout</a>
-            </div>
-        </div>
+
         <div class="card mr-4 mb-4 bg-dark text-white" style="width: 300px; height: 320px; min-width: 300px; min-height: 320px">
             <h4 class="card-title" style="padding: 10px">Sleep Target: Past 3 Days</h4>
             <canvas id="3dayChart"></canvas>
@@ -30,14 +23,14 @@
             <div class="card-body">
                 <h5 class="card-title">Upcoming Event</h5>
                 <p class="card-text">Event Data Here</p>
-                <a href="#" class="btn btn-primary">Go to events</a>
+                <a href="EventData" class="btn btn-primary">Go to events</a>
             </div>
         </div>
         <div class="card mr-4 mb-4 bg-dark text-white" style="width: 300px; height: 320px; min-width: 300px; min-height: 320px">
             <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <h5 class="card-title">View Sleep Help</h5>
+                <p class="card-text">Click below to get information about sleep</p>
+                <a href="sleepInfo" class="btn btn-primary">sleep infomation</a>
             </div>
         </div>
     </div>
