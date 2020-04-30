@@ -82,9 +82,9 @@ class AccTerminate extends Controller
     public function destroy($id)
     {
 //        Auth::user()->id;
-
         DB::select('CALL drop_user_sleeps(?)',[$id]);
         DB::select('CALL drop_user(?)',[$id]);
+        DB::select('CALL remove_events(?)',[$id]);
         Auth::logout();
         return redirect('dashboard');
     }

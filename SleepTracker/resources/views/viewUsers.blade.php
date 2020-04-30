@@ -43,7 +43,7 @@
             </div>
             <div class="card bg-dark text-white" id="editUser">
                 <div class="card-header">Update User Records</div>
-                <form method="post" action="viewUsers">
+                <form method="post" action="">
                     @csrf
                     <div class="form-group">
                         <label for="id">ID:</label>
@@ -74,7 +74,7 @@
                 </form>
             </div>
         </div>
-        <form id="deleteUser" method="POST" action="" hidden>
+        <form id="deleteUser" method="POST" action="" {{--hidden--}}>
             {{ csrf_field() }}
             {{ method_field('DELETE') }}
 

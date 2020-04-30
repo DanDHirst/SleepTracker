@@ -94,6 +94,7 @@ class viewUsers extends Controller
     {
         DB::select('CALL drop_user_sleeps(?)',[$id]);
         DB::select('CALL drop_user(?)',[$id]);
+        DB::select('CALL remove_events(?)',[$id]);
         return redirect('viewUsers');
     }
 }
