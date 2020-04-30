@@ -26,13 +26,6 @@
                 <a href="EventData" class="btn btn-primary">Go to events</a>
             </div>
         </div>
-        <div class="card mr-4 mb-4 bg-dark text-white" style="width: 300px; height: 320px; min-width: 300px; min-height: 320px">
-            <div class="card-body">
-                <h5 class="card-title">View Sleep Help</h5>
-                <p class="card-text">Click below to get information about sleep</p>
-                <a href="sleepInfo" class="btn btn-primary">sleep infomation</a>
-            </div>
-        </div>
     </div>
 </div>
 

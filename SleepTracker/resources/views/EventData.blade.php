@@ -33,7 +33,7 @@
                                            onclick='showSleep({"SleepID":"{{$Sleep->Sleep_ID}}","start":"{{$Sleep->Sleep_Start}}","end":"{{$Sleep->Sleep_End}}","notes":"{{$Sleep->Sleep_Notes}}"})'></a>
                                     </td>
                                     <td>
-                                        <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteSleep({{$Sleep->Sleep_ID}})"></a>
+                                        <a class="fas fa-times-circle text-danger" aria-hidden="true" data-toggle="modal" data-target="#deleteSleepModal"></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -75,7 +75,7 @@
                                         <a class="fas fa-edit text-primary" aria-hidden="true" data-toggle="modal" data-target="#editEventModal" onclick='showEvent({"id":"{{$Event->id}}","title":"{{$Event->title}}","desc":"{{$Event->description}}","start":"{{$Event->start_time}}", "end":"{{$Event->end_time}}" })'></a>
                                     </td>
                                     <td>
-                                        <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteEvent({{$Event->id}})"></a>
+                                        <a class="fas fa-times-circle text-danger" aria-hidden="true" data-toggle="modal" data-target="#deleteEventModal"></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -91,6 +91,45 @@
                 </div>
             </div>
         </div>
+
+        <div id="deleteSleepModal" class="modal fade" role="dialog" tabindex="-1">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Delete Sleep?</h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete this sleep?</p>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn-light" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn-danger" onclick="deleteSleep({{$Sleep->Sleep_ID}})">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="deleteEventModal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="deleteEventModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteEventModalLabel">Delete Event?</h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete this event?</p>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn-light" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn-danger" onclick="deleteEvent({{$Event->id}})">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <!-- Sleep Modal -->
         <div class="modal fade" id="addSleepModal" tabindex="-1" role="dialog" aria-labelledby="sleepModalLabel" aria-hidden="true">
