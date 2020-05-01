@@ -9,10 +9,13 @@
 - composer global require phpunit/phpunit
 - to run type in the console phpunit
 
-## to be deleted
-### Database
-#### Host: proj-mysql.uopnet.plymouth.ac.uk
-#### Username: PRCO204_C
-#### password: ZTzMIcYt0u0Xt9JE
 ### Server
 http://web.socem.plymouth.ac.uk/IntProj/PRCO204_C/public/
+### Tools used
+-[Laravel framework](https://laravel.com/)
+
+### youtube video
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=-XbW1d2NSFE
+" target="_blank"><img src="http://img.youtube.com/vi/-XbW1d2NSFE/0.jpg" 
+alt="Application demo" width="240" height="180" border="10" /></a>
+[Application demo](https://www.youtube.com/watch?v=-XbW1d2NSFE&feature=youtu.be)
