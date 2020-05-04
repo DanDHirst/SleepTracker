@@ -33,7 +33,7 @@
                                            onclick='showSleep({"SleepID":"{{$Sleep->Sleep_ID}}","start":"{{$Sleep->Sleep_Start}}","end":"{{$Sleep->Sleep_End}}","notes":"{{$Sleep->Sleep_Notes}}"})'></a>
                                     </td>
                                     <td>
-                                        <a class="fas fa-times-circle text-danger" aria-hidden="true" data-toggle="modal" data-target="#deleteSleepModal"></a>
+                                        <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteSleep({{$Sleep->Sleep_ID}})"></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -75,7 +75,7 @@
                                         <a class="fas fa-edit text-primary" aria-hidden="true" data-toggle="modal" data-target="#editEventModal" onclick='showEvent({"id":"{{$Event->id}}","title":"{{$Event->title}}","desc":"{{$Event->description}}","start":"{{$Event->start_time}}", "end":"{{$Event->end_time}}" })'></a>
                                     </td>
                                     <td>
-                                        <a class="fas fa-times-circle text-danger" aria-hidden="true" data-toggle="modal" data-target="#deleteEventModal"></a>
+                                        <a class="fas fa-times-circle text-danger" aria-hidden="true" onclick="deleteEvent({{$Event->id}})"></a>
                                     </td>
                                 </tr>
                             @endforeach
