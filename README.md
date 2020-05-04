@@ -12,9 +12,9 @@
 ### Server
 http://web.socem.plymouth.ac.uk/IntProj/PRCO204_C/public/
 ### Tools used
--Laravel 6.5: https://laravel.com/
--Postman (To test API): https://www.getpostman.com/
--Composer (used to install dependencies for Laravel): https://getcomposer.org/download/
+- Laravel 6.5: https://laravel.com/
+- Postman (To test API): https://www.getpostman.com/
+- Composer (used to install dependencies for Laravel): https://getcomposer.org/download/
 
 ### youtube video
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=-XbW1d2NSFE
